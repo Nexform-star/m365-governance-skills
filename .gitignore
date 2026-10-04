@@ -10,7 +10,7 @@ venv/
 # Local exports and reports: never commit data from a real tenant
 *-export-*/
 preflight-*/
-access-review-*/
+access-review-20*/
 cleanup.csv
 *-findings.json
 
