@@ -22,7 +22,7 @@ def svg_text(path: Path) -> str:
     """All text in the SVG, with the no-break spaces the renderer uses for runs of spaces turned back into spaces."""
     root = ET.parse(path).getroot()
     assert root.tag == f"{SVG_NS}svg"
-    return "\n".join("".join(t.itertext()) for t in root.iter(f"{SVG_NS}text")).replace(" ", " ")
+    return "\n".join("".join(t.itertext()) for t in root.iter(f"{SVG_NS}text")).replace("\u00a0", " ")
 
 
 def test_render_demo_regenerates_a_well_formed_svg(tmp_path: Path) -> None:
