@@ -4,7 +4,7 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## [Unreleased]
 
-## [0.2.0] - 2026-10-05
+## [0.2.0] - 2026-10-04
 
 Four new skills, each with a standard-library script, hand-written fixtures with planted problems, and tests. The plugin now has nine skills.
 
