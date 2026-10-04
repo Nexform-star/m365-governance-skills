@@ -56,6 +56,8 @@ docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.
 docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 --help
 ```
 
+This pack is also part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
+
 | Subcommand | Script (skill) |
 |---|---|
 | `preflight` | `permission_preflight.py` (graph-permission-preflight) |
@@ -181,6 +183,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the ground rules and [docs/good-first
 | [repo-engineering-skills](https://github.com/basitalisandhu/repo-engineering-skills) | Claude Code skills for repository audits and documentation checked against the code |
 | [claude-dev-skills](https://github.com/basitalisandhu/claude-dev-skills) | Claude Code skills for everyday development: code review, debugging, CI and containers, data, docs and security basics |
 | [basitalisandhu](https://github.com/basitalisandhu) | The maintainer's profile and other projects |
+| [Every skill I maintain, in one place](https://github.com/basitalisandhu/claude-skills) | All packs in one repository; this plugin's pages are at https://basitalisandhu.github.io/claude-skills/plugins/m365-governance/ |
 
 ## Licence
 
