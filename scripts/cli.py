@@ -15,7 +15,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 PROG = "m365-governance"
 ROOT = Path(__file__).resolve().parents[1]

@@ -49,11 +49,11 @@ Requirements: Python 3.11 or newer as `python3`. For the export steps only: the 
 The plugin installs as shown in the Quickstart. The skill scripts are also published as one container image on GitHub Packages (linux/amd64 and linux/arm64) for running them without a checkout, for example in CI. The image's entrypoint is `m365-governance <subcommand> [args]`; mount the files to read at `/work`, which is the working directory:
 
 ```bash
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 entra-posture /work/entra-export-2026-10-04 --config /work/config.yaml
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 preflight /work/preflight-myapp --needs /work/preflight-myapp/needs.yaml
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 access-review /work/entra-export-2026-10-04 --out-dir /work/access-review-2026-10
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 license-audit /work/licence-export-2026-10-05 --csv /work/reclaim-draft.csv
-docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 --help
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 entra-posture /work/entra-export-2026-10-04 --config /work/config.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 preflight /work/preflight-myapp --needs /work/preflight-myapp/needs.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 access-review /work/entra-export-2026-10-04 --out-dir /work/access-review-2026-10
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 license-audit /work/licence-export-2026-10-05 --csv /work/reclaim-draft.csv
+docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 --help
 ```
 
 This pack is also part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
@@ -75,10 +75,10 @@ Every subcommand passes its arguments to the script unchanged, so `m365-governan
 Each image is signed with cosign (keyless) and has a build provenance attestation and an SPDX SBOM (attached to the GitHub Release). To verify:
 
 ```bash
-cosign verify ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 \
+cosign verify ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 \
   --certificate-identity-regexp '^https://github.com/basitalisandhu/m365-governance-skills/' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
-gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 --owner basitalisandhu
+gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 --owner basitalisandhu
 ```
 
 ## When to use this
