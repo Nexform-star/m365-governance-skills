@@ -19,6 +19,9 @@ def test_ownerless_severity_by_kind():
     assert by(rep, "GRP-OWNERLESS") == {"Finance Team": "HIGH", "TMP-old-project": "MEDIUM", "VPN Users": "LOW"}
     assert by(rep, "GRP-SINGLE-OWNER") == {"PRJ-Apollo": "LOW"}
 
+def test_guest_owner():
+    _, rep = run_json(mod, [T, *BASE])
+    assert by(rep, "GRP-GUEST-OWNER") == {"PRJ-GuestOwner": "MEDIUM"}
 
 def test_guests_public_inactive_naming_expiration():
     _, rep = run_json(mod, [T, *BASE])
@@ -47,8 +50,7 @@ def test_cleanup_csv(tmp_path):
     assert rc == 1
     rows = list(csv.DictReader(out.open(encoding="utf-8")))
     assert rows[0]["name"] == "Finance Team" and rows[0]["decision"] == ""
-    assert len(rows) == 5
-
+    assert len(rows) == 6
 
 def test_no_lifecycle_policy(write):
     write("groups.json", json.dumps({"value": [{"id": "g", "displayName": "X", "groupTypes": ["Unified"], "expirationDateTime": None}]}))

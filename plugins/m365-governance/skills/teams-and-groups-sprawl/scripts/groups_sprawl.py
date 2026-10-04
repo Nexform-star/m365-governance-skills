@@ -189,6 +189,16 @@ def evaluate(folder: str, cfg: dict, now) -> tuple[dict, Export, set[str]]:
             add("GRP-SINGLE-OWNER", "LOW", f"{len(owners)} owner(s), fewer than {min_owners}",
                 "owners: " + ", ".join(o.get("userPrincipalName") or o.get("displayName", "?") for o in owners),
                 graph=f"POST /groups/{gid}/owners/$ref (add a second owner)")
+        if owners and any(is_guest(owner) for owner in owners):
+            add(
+                "GRP-GUEST-OWNER",
+                "MEDIUM",
+                "Group has at least one guest owner",
+                "owners: " + ", ".join(
+                    o.get("userPrincipalName") or o.get("displayName", "?")
+                    for o in owners
+                ),
+            )
         guests = [m for m in members or [] if is_guest(m)]
         if guests:
             sev = "MEDIUM" if sensitive and sensitive.search(name) else "LOW"

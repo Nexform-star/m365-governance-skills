@@ -45,6 +45,12 @@
       "displayName": "Erin Example",
       "userPrincipalName": "erin@example.com",
       "userType": "Member"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000206",
+      "displayName": "Guest Example",
+      "userPrincipalName": "guest_example#EXT#@example.com",
+      "userType": "Guest"
     }
   ]
 }

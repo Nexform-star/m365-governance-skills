@@ -88,6 +88,20 @@
       "createdDateTime": "2025-03-01T00:00:00Z",
       "expirationDateTime": "2027-03-01T00:00:00Z",
       "renewedDateTime": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000307",
+      "displayName": "PRJ-GuestOwner",
+      "groupTypes": [
+        "Unified"
+      ],
+      "mailEnabled": true,
+      "securityEnabled": false,
+      "visibility": "Private",
+      "resourceProvisioningOptions": [],
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "expirationDateTime": "2027-03-01T00:00:00Z",
+      "renewedDateTime": "2026-03-01T00:00:00Z"
     }
   ]
 }
