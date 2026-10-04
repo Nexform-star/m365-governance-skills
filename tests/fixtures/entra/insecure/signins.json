@@ -1,0 +1,32 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "s1",
+      "userPrincipalName": "legacy.user@example.com",
+      "clientAppUsed": "IMAP4",
+      "status": {
+        "errorCode": 0
+      },
+      "createdDateTime": "2026-10-01T03:00:00Z"
+    },
+    {
+      "id": "s2",
+      "userPrincipalName": "pim.admin@example.com",
+      "clientAppUsed": "IMAP4",
+      "status": {
+        "errorCode": 50126
+      },
+      "createdDateTime": "2026-10-01T03:00:00Z"
+    },
+    {
+      "id": "s3",
+      "userPrincipalName": "admin.one@example.com",
+      "clientAppUsed": "Browser",
+      "status": {
+        "errorCode": 0
+      },
+      "createdDateTime": "2026-10-01T03:00:00Z"
+    }
+  ]
+}

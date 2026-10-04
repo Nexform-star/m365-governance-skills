@@ -1,0 +1,33 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "ara-m",
+      "appRoleId": "00000000-0000-0000-0000-000000000e11",
+      "principalId": "00000000-0000-0000-0000-0000000005e1",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph"
+    },
+    {
+      "id": "ara-d",
+      "appRoleId": "00000000-0000-0000-0000-000000000e12",
+      "principalId": "00000000-0000-0000-0000-0000000005e1",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph"
+    },
+    {
+      "id": "ara-c",
+      "appRoleId": "00000000-0000-0000-0000-000000000e14",
+      "principalId": "00000000-0000-0000-0000-0000000005e1",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph"
+    },
+    {
+      "id": "ara-other",
+      "appRoleId": "00000000-0000-0000-0000-000000000e15",
+      "principalId": "00000000-0000-0000-0000-0000000005e9",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph"
+    }
+  ]
+}

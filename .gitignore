@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Local exports and reports: never commit data from a real tenant
+*-export-*/
+preflight-*/
+access-review-*/
+pack-redacted/
+cleanup.csv
+*-findings.json
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/

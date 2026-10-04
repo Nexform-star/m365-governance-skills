@@ -1,0 +1,73 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#deviceManagement/example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.windows10CompliancePolicy",
+      "id": "00000000-0000-0000-0000-000000000b01",
+      "displayName": "Windows baseline",
+      "passwordRequired": true,
+      "osMinimumVersion": "10.0.19045",
+      "bitLockerEnabled": false,
+      "storageRequireEncryption": false,
+      "defenderEnabled": false,
+      "antivirusRequired": false,
+      "deviceThreatProtectionEnabled": false,
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a1"
+          }
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.iosCompliancePolicy",
+      "id": "00000000-0000-0000-0000-000000000b02",
+      "displayName": "iOS baseline",
+      "passcodeRequired": true,
+      "osMinimumVersion": null,
+      "securityBlockJailbrokenDevices": false,
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a1"
+          }
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.macOSCompliancePolicy",
+      "id": "00000000-0000-0000-0000-000000000b03",
+      "displayName": "macOS draft",
+      "passwordRequired": true,
+      "osMinimumVersion": "14.0",
+      "storageRequireEncryption": true,
+      "assignments": []
+    },
+    {
+      "@odata.type": "#microsoft.graph.androidWorkProfileCompliancePolicy",
+      "id": "00000000-0000-0000-0000-000000000b04",
+      "displayName": "Android work profile",
+      "passwordRequired": true,
+      "osMinimumVersion": "13",
+      "securityBlockJailbrokenDevices": true,
+      "storageRequireEncryption": true,
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a1"
+          }
+        },
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.exclusionGroupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a2"
+          }
+        }
+      ]
+    }
+  ]
+}

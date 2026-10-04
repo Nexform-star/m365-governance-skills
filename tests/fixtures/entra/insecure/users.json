@@ -1,0 +1,137 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000101",
+      "displayName": "Admin One",
+      "userPrincipalName": "admin.one@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000102",
+      "displayName": "Admin Two",
+      "userPrincipalName": "admin.two@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-09-20T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000103",
+      "displayName": "Legacy User",
+      "userPrincipalName": "legacy.user@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-02T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000104",
+      "displayName": "Pim Admin",
+      "userPrincipalName": "pim.admin@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-03T22:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000105",
+      "displayName": "Old Admin",
+      "userPrincipalName": "old.admin@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-03-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000106",
+      "displayName": "Break Glass One",
+      "userPrincipalName": "breakglass1@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-07-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000107",
+      "displayName": "Break Glass Two",
+      "userPrincipalName": "breakglass2@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-07-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000108",
+      "displayName": "Partner Admin",
+      "userPrincipalName": "partner.admin_example.net#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": true,
+      "createdDateTime": "2025-05-01T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-09-30T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000109",
+      "displayName": "Old Vendor",
+      "userPrincipalName": "old.vendor_example.org#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": true,
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-01-10T08:00:00.1234567Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-00000000010a",
+      "displayName": "Never Signed In",
+      "userPrincipalName": "never.signed_example.org#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": true,
+      "createdDateTime": "2025-12-01T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": null,
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-00000000010b",
+      "displayName": "Disabled Guest",
+      "userPrincipalName": "disabled.guest_example.org#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": false,
+      "createdDateTime": "2024-01-01T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": null,
+        "lastNonInteractiveSignInDateTime": null
+      }
+    }
+  ]
+}

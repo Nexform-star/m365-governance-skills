@@ -1,0 +1,6 @@
+# Thresholds for the fixture estate.
+stale_device_days: 30
+corporate_only: true
+min_os_version:
+  Windows: "10.0.19045"
+ignore_platforms: [Linux]

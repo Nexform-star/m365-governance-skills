@@ -1,0 +1,35 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "ara-1",
+      "appRoleId": "00000000-0000-0000-0000-000000000e01",
+      "principalId": "00000000-0000-0000-0000-0000000005f1",
+      "principalDisplayName": "Example Sync Connector",
+      "principalType": "ServicePrincipal",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph",
+      "createdDateTime": "2025-04-01T00:00:00Z"
+    },
+    {
+      "id": "ara-2",
+      "appRoleId": "00000000-0000-0000-0000-000000000e03",
+      "principalId": "00000000-0000-0000-0000-0000000005f2",
+      "principalDisplayName": "Example Reporting",
+      "principalType": "ServicePrincipal",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph",
+      "createdDateTime": "2025-04-01T00:00:00Z"
+    },
+    {
+      "id": "ara-3",
+      "appRoleId": "00000000-0000-0000-0000-000000000e02",
+      "principalId": "00000000-0000-0000-0000-0000000005f2",
+      "principalDisplayName": "Example Reporting",
+      "principalType": "ServicePrincipal",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph",
+      "createdDateTime": "2025-04-02T00:00:00Z"
+    }
+  ]
+}

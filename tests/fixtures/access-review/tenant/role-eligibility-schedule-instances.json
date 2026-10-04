@@ -1,0 +1,11 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "e1",
+      "principalId": "00000000-0000-0000-0000-000000000602",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "memberType": "Direct"
+    }
+  ]
+}

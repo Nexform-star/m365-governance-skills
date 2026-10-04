@@ -1,0 +1,22 @@
+{
+  "value": [
+    {
+      "id": "62e90394-69f5-4237-9190-012177145e10",
+      "displayName": "Global Administrator",
+      "isBuiltIn": true,
+      "templateId": "62e90394-69f5-4237-9190-012177145e10"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000a01",
+      "displayName": "User Administrator",
+      "isBuiltIn": true,
+      "templateId": "00000000-0000-0000-0000-000000000a01"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000a02",
+      "displayName": "Application Administrator",
+      "isBuiltIn": true,
+      "templateId": "00000000-0000-0000-0000-000000000a02"
+    }
+  ]
+}

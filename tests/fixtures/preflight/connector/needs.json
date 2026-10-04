@@ -1,0 +1,1 @@
+{"task": "Summarise the signed-in user's own mail", "type": "Delegated", "needs": ["Mail.Read", "User.ReadBasic.All", "offline_access"]}

@@ -1,0 +1,32 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "a1",
+      "activityDisplayName": "Consent to application",
+      "activityDateTime": "2026-09-28T10:00:00Z",
+      "initiatedBy": {
+        "user": {
+          "userPrincipalName": "legacy.user@example.com"
+        }
+      },
+      "targetResources": [
+        {
+          "displayName": "Example Calendar Helper",
+          "type": "ServicePrincipal"
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "activityDisplayName": "Update user",
+      "activityDateTime": "2026-09-28T10:00:00Z",
+      "initiatedBy": {
+        "user": {
+          "userPrincipalName": "admin.one@example.com"
+        }
+      },
+      "targetResources": []
+    }
+  ]
+}

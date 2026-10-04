@@ -1,0 +1,54 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#deviceManagement/example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.windows10CompliancePolicy",
+      "id": "00000000-0000-0000-0000-000000000b01",
+      "displayName": "Windows baseline",
+      "passwordRequired": true,
+      "osMinimumVersion": "10.0.19045",
+      "bitLockerEnabled": true,
+      "defenderEnabled": true,
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a1"
+          }
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.iosCompliancePolicy",
+      "id": "00000000-0000-0000-0000-000000000b02",
+      "displayName": "iOS baseline",
+      "passcodeRequired": true,
+      "osMinimumVersion": "17.0",
+      "securityBlockJailbrokenDevices": true,
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a1"
+          }
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.macOSCompliancePolicy",
+      "id": "00000000-0000-0000-0000-000000000b03",
+      "displayName": "macOS baseline",
+      "passwordRequired": true,
+      "osMinimumVersion": "14.0",
+      "storageRequireEncryption": true,
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a1"
+          }
+        }
+      ]
+    }
+  ]
+}

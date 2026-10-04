@@ -1,0 +1,11 @@
+# Config for groups_sprawl.py. Every key is optional.
+# Fewer owners than this is reported (a single owner is a single point of failure).
+min_owners: 2
+# A team with no activity in the activity report for longer than this is inactive.
+inactive_days: 90
+# Naming convention as a regular expression; omit to skip the naming check.
+naming_pattern: "^(PRJ|DEP|TMP)-[A-Za-z0-9-]+$"
+# Which kinds the naming check applies to: team, m365, security, distribution, mail-security.
+naming_applies_to: [m365, team]
+# Groups whose names match this are treated as sensitive: guest members are reported as MEDIUM.
+sensitive_pattern: "(?i)(finance|payroll|hr|legal|security|board)"

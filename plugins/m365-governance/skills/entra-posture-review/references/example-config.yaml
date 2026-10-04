@@ -1,0 +1,17 @@
+# Config for entra_posture.py. Every key is optional.
+# Break-glass (emergency access) accounts: object ids or user principal names. They are expected to be
+# permanent Global Administrators and to be excluded from Conditional Access; listing them here stops
+# those being reported as gaps, and makes the script check that they ARE excluded (lockout risk).
+break_glass:
+  - 00000000-0000-0000-0000-000000000001
+  - breakglass2@example.com
+# Groups excluded from Conditional Access on purpose (for example a break-glass group).
+break_glass_groups: []
+# More Global Administrators than this is reported (Microsoft guidance is fewer than five).
+max_global_admins: 4
+# A guest with no sign-in for this many days is stale.
+stale_guest_days: 90
+# A client secret valid for longer than this is long-lived.
+max_secret_days: 365
+# Credentials expiring within this many days are listed.
+expiring_days: 30

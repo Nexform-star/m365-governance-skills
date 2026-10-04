@@ -1,0 +1,8 @@
+# Example config for the insecure and secure fixture tenants (example ids only).
+break_glass:
+  - 00000000-0000-0000-0000-000000000106   # breakglass1@example.com
+  - breakglass2@example.com
+max_global_admins: 4
+stale_guest_days: 90
+max_secret_days: 365
+expiring_days: 30

@@ -1,0 +1,99 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000c11",
+      "displayName": "CA001 Require MFA for all users",
+      "state": "enabled",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeUsers": [
+            "00000000-0000-0000-0000-000000000106",
+            "00000000-0000-0000-0000-000000000107"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c12",
+      "displayName": "CA002 Phishing-resistant MFA for admins",
+      "state": "enabled",
+      "conditions": {
+        "users": {
+          "includeRoles": [
+            "62e90394-69f5-4237-9190-012177145e10",
+            "00000000-0000-0000-0000-000000000a01"
+          ],
+          "excludeUsers": [
+            "00000000-0000-0000-0000-000000000106",
+            "00000000-0000-0000-0000-000000000107"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [],
+        "authenticationStrength": {
+          "id": "00000000-0000-0000-0000-000000000004",
+          "displayName": "Phishing-resistant MFA"
+        }
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c13",
+      "displayName": "CA003 Block legacy authentication",
+      "state": "enabled",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeUsers": [
+            "00000000-0000-0000-0000-000000000106",
+            "00000000-0000-0000-0000-000000000107"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "exchangeActiveSync",
+          "other"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "block"
+        ]
+      }
+    }
+  ]
+}

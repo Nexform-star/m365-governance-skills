@@ -1,0 +1,28 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000801",
+      "displayName": "Finance Approvers",
+      "groupTypes": [],
+      "securityEnabled": true,
+      "mailEnabled": false
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000802",
+      "displayName": "Project Atlas",
+      "groupTypes": [
+        "Unified"
+      ],
+      "securityEnabled": false,
+      "mailEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000803",
+      "displayName": "Payroll Admins",
+      "groupTypes": [],
+      "securityEnabled": true,
+      "mailEnabled": false
+    }
+  ]
+}

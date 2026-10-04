@@ -1,0 +1,76 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-0000000005f0",
+      "appId": "00000003-0000-0000-c000-000000000000",
+      "displayName": "Microsoft Graph",
+      "appRoles": [
+        {
+          "id": "00000000-0000-0000-0000-000000000e11",
+          "value": "Mail.ReadWrite",
+          "allowedMemberTypes": [
+            "Application"
+          ]
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000e12",
+          "value": "Directory.ReadWrite.All",
+          "allowedMemberTypes": [
+            "Application"
+          ]
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000e13",
+          "value": "Sites.FullControl.All",
+          "allowedMemberTypes": [
+            "Application"
+          ]
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000e14",
+          "value": "Calendars.Read",
+          "allowedMemberTypes": [
+            "Application"
+          ]
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000e15",
+          "value": "Mail.Read",
+          "allowedMemberTypes": [
+            "Application"
+          ]
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000e16",
+          "value": "Sites.Selected",
+          "allowedMemberTypes": [
+            "Application"
+          ]
+        }
+      ],
+      "oauth2PermissionScopes": [
+        {
+          "id": "00000000-0000-0000-0000-000000000d11",
+          "value": "User.Read",
+          "type": "User"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000d12",
+          "value": "Files.Read.All",
+          "type": "User"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000d13",
+          "value": "Mail.Send",
+          "type": "User"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000d14",
+          "value": "offline_access",
+          "type": "User"
+        }
+      ]
+    }
+  ]
+}

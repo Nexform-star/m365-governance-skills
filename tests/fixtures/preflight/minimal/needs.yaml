@@ -1,0 +1,4 @@
+task: Read one SharePoint site's document library
+needs:
+  - {permission: Sites.Selected, type: Application}
+  - {permission: User.Read, type: Delegated}

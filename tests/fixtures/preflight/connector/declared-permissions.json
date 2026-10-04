@@ -1,0 +1,21 @@
+{
+  "app": "Example Notes Connector",
+  "permissions": [
+    {
+      "name": "Mail.ReadWrite",
+      "type": "Application"
+    },
+    {
+      "name": "User.Read.All",
+      "type": "Application"
+    },
+    {
+      "name": "offline_access",
+      "type": "Delegated"
+    },
+    {
+      "name": "Chat.Read.All",
+      "type": "Application"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# Needs manifest for permission_preflight.py: what the task needs, written BEFORE anything is consented.
+# List the narrowest permission that does the job. Names are Microsoft Graph permission names exactly as
+# they appear in the API permissions page (case-sensitive).
+task: Copy events from the shared "Bookings" calendar into the booking tool every 15 minutes
+# Default type for entries without one: Application (no signed-in user, admin consent) or Delegated
+# (acts as the signed-in user, limited to what that user can reach).
+type: Application
+needs:
+  - Calendars.Read            # then limit it to the one mailbox with Exchange Online RBAC for Applications
+  - {permission: User.Read, type: Delegated}   # sign-in for the admin who configures the connector

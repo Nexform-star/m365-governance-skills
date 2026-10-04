@@ -1,0 +1,13 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000301",
+      "displayName": "PRJ-Apollo"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000306",
+      "displayName": "PRJ-Zeus"
+    }
+  ]
+}

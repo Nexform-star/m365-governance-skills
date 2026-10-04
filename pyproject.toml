@@ -1,0 +1,17 @@
+[project]
+name = "m365-governance-skills"
+version = "0.1.0"
+description = "Claude Code skills for Microsoft 365 governance: Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and group sprawl, access review pack."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+
+[tool.ruff]
+line-length = 150
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]

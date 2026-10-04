@@ -1,0 +1,92 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000c01",
+      "displayName": "Require MFA for administrators",
+      "state": "enabledForReportingButNotEnforced",
+      "conditions": {
+        "users": {
+          "includeRoles": [
+            "62e90394-69f5-4237-9190-012177145e10"
+          ],
+          "excludeUsers": []
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c02",
+      "displayName": "Require MFA for Office 365",
+      "state": "enabled",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeUsers": [
+            "00000000-0000-0000-0000-000000000103",
+            "00000000-0000-0000-0000-000000000106"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009e1"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "Office365"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c03",
+      "displayName": "Block downloads on unmanaged devices",
+      "state": "disabled",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "exchangeActiveSync",
+          "other"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "block"
+        ]
+      }
+    }
+  ]
+}

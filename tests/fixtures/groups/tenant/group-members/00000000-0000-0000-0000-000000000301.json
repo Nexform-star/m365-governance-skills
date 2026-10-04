@@ -1,0 +1,26 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.user",
+      "id": "00000000-0000-0000-0000-000000000201",
+      "displayName": "Alice Example",
+      "userPrincipalName": "alice@example.com",
+      "userType": "Member"
+    },
+    {
+      "@odata.type": "#microsoft.graph.user",
+      "id": "00000000-0000-0000-0000-000000000202",
+      "displayName": "Bob Example",
+      "userPrincipalName": "bob@example.com",
+      "userType": "Member"
+    },
+    {
+      "@odata.type": "#microsoft.graph.user",
+      "id": "00000000-0000-0000-0000-0000000002a1",
+      "displayName": "Guest One",
+      "userPrincipalName": "guest1_example.org#EXT#@example.com",
+      "userType": "Guest"
+    }
+  ]
+}

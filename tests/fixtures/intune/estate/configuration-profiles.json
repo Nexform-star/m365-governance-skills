@@ -1,0 +1,48 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#deviceManagement/example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.windowsWifiConfiguration",
+      "id": "00000000-0000-0000-0000-000000000b11",
+      "displayName": "Wi-Fi corporate",
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.allDevicesAssignmentTarget"
+          }
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.windows10EndpointProtectionConfiguration",
+      "id": "00000000-0000-0000-0000-000000000b12",
+      "displayName": "BitLocker",
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.allDevicesAssignmentTarget"
+          }
+        },
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.exclusionGroupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a2"
+          }
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.windows10VpnConfiguration",
+      "id": "00000000-0000-0000-0000-000000000b13",
+      "displayName": "VPN",
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a1"
+          }
+        }
+      ]
+    }
+  ]
+}

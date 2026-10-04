@@ -1,0 +1,13 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "ara-2",
+      "appRoleId": "00000000-0000-0000-0000-000000000e03",
+      "principalId": "00000000-0000-0000-0000-0000000005f2",
+      "principalDisplayName": "Example Reporting",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "resourceDisplayName": "Microsoft Graph"
+    }
+  ]
+}

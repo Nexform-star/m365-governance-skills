@@ -1,0 +1,23 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "assignment-1",
+      "principalId": "00000000-0000-0000-0000-000000000106",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/"
+    },
+    {
+      "id": "assignment-2",
+      "principalId": "00000000-0000-0000-0000-000000000107",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/"
+    },
+    {
+      "id": "assignment-3",
+      "principalId": "00000000-0000-0000-0000-000000000102",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a01",
+      "directoryScopeId": "/"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+min_owners: 2
+inactive_days: 90
+naming_pattern: "^(PRJ|DEP|TMP)-[A-Za-z0-9-]+$"
+naming_applies_to: [m365, team]
+sensitive_pattern: "(?i)(finance|payroll|hr|legal)"

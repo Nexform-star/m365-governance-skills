@@ -1,0 +1,50 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000201",
+      "displayName": "Alice Example",
+      "userPrincipalName": "alice@example.com",
+      "userType": "Member",
+      "manager": {
+        "id": "00000000-0000-0000-0000-000000000205",
+        "displayName": "Erin Example",
+        "userPrincipalName": "erin@example.com"
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000202",
+      "displayName": "Bob Example",
+      "userPrincipalName": "bob@example.com",
+      "userType": "Member",
+      "manager": {
+        "id": "00000000-0000-0000-0000-000000000204",
+        "displayName": "Dana Example",
+        "userPrincipalName": "dana@example.com"
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000203",
+      "displayName": "Carol Example",
+      "userPrincipalName": "carol@example.com",
+      "userType": "Member",
+      "manager": {
+        "id": "00000000-0000-0000-0000-000000000204",
+        "displayName": "Dana Example",
+        "userPrincipalName": "dana@example.com"
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000204",
+      "displayName": "Dana Example",
+      "userPrincipalName": "dana@example.com",
+      "userType": "Member"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000205",
+      "displayName": "Erin Example",
+      "userPrincipalName": "erin@example.com",
+      "userType": "Member"
+    }
+  ]
+}

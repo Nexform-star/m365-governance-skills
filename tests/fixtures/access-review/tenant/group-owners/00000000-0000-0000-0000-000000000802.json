@@ -1,0 +1,12 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.user",
+      "id": "00000000-0000-0000-0000-000000000603",
+      "displayName": "Cy Example",
+      "userPrincipalName": "cy@example.com",
+      "userType": "Member"
+    }
+  ]
+}

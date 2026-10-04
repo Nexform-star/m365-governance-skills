@@ -1,0 +1,60 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000601",
+      "displayName": "Ana Example",
+      "userPrincipalName": "ana@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-01T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000602",
+      "displayName": "Ben Example",
+      "userPrincipalName": "ben@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-06-15T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000603",
+      "displayName": "Cy Example",
+      "userPrincipalName": "cy@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "signInActivity": {
+        "lastSignInDateTime": null,
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000006a1",
+      "displayName": "Guest Partner",
+      "userPrincipalName": "guest_example.net#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": true,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-02-01T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000006a2",
+      "displayName": "Guest Former",
+      "userPrincipalName": "guest2_example.net#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": false,
+      "signInActivity": {
+        "lastSignInDateTime": null,
+        "lastNonInteractiveSignInDateTime": null
+      }
+    }
+  ]
+}

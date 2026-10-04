@@ -1,0 +1,53 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "si-1",
+      "principalId": "00000000-0000-0000-0000-000000000101",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "assignmentType": "Assigned",
+      "startDateTime": "2024-03-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-2",
+      "principalId": "00000000-0000-0000-0000-000000000102",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "assignmentType": "Assigned",
+      "startDateTime": "2024-03-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-3",
+      "principalId": "00000000-0000-0000-0000-000000000108",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "assignmentType": "Assigned",
+      "startDateTime": "2025-06-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-4",
+      "principalId": "00000000-0000-0000-0000-000000000104",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "assignmentType": "Activated",
+      "startDateTime": "2026-10-03T22:00:00Z",
+      "endDateTime": "2026-10-04T06:00:00Z"
+    },
+    {
+      "id": "si-5",
+      "principalId": "00000000-0000-0000-0000-000000000105",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "assignmentType": "Assigned",
+      "startDateTime": "2025-02-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-6",
+      "principalId": "00000000-0000-0000-0000-000000000106",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "assignmentType": "Assigned",
+      "startDateTime": "2024-01-01T00:00:00Z",
+      "endDateTime": null
+    }
+  ]
+}

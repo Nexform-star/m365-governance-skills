@@ -1,0 +1,13 @@
+# Config for intune_baseline.py. Every key is optional.
+# A device that has not checked in for longer than this is stale.
+stale_device_days: 30
+# true when only company-owned devices may be enrolled; personal devices are then reported.
+corporate_only: true
+# Lowest OS version allowed per platform (compared number by number). Omit a platform to skip it.
+min_os_version:
+  Windows: "10.0.19045"
+  macOS: "14.0"
+  iOS: "17.0"
+  Android: "13"
+# Platforms to leave out of the report entirely.
+ignore_platforms: []

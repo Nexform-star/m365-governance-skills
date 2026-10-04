@@ -1,0 +1,9 @@
+{
+  "id": "authorizationPolicy",
+  "allowInvitesFrom": "everyone",
+  "defaultUserRolePermissions": {
+    "permissionGrantPoliciesAssigned": [
+      "ManagePermissionGrantsForSelf.microsoft-user-default-legacy"
+    ]
+  }
+}

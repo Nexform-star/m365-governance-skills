@@ -1,0 +1,28 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "ra1",
+      "principalId": "00000000-0000-0000-0000-000000000601",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/"
+    },
+    {
+      "id": "ra2",
+      "principalId": "00000000-0000-0000-0000-0000000006a1",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a03",
+      "directoryScopeId": "/"
+    },
+    {
+      "id": "ra3",
+      "principalId": "00000000-0000-0000-0000-0000000005d1",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a01",
+      "directoryScopeId": "/administrativeUnits/00000000-0000-0000-0000-0000000007a1",
+      "principal": {
+        "@odata.type": "#microsoft.graph.servicePrincipal",
+        "id": "00000000-0000-0000-0000-0000000005d1",
+        "displayName": "Example HR Provisioning"
+      }
+    }
+  ]
+}

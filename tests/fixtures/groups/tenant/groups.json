@@ -1,0 +1,93 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000301",
+      "displayName": "PRJ-Apollo",
+      "groupTypes": [
+        "Unified"
+      ],
+      "mailEnabled": true,
+      "securityEnabled": false,
+      "visibility": "Private",
+      "resourceProvisioningOptions": [
+        "Team"
+      ],
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "expirationDateTime": "2027-03-01T00:00:00Z",
+      "renewedDateTime": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000302",
+      "displayName": "Finance Team",
+      "groupTypes": [
+        "Unified"
+      ],
+      "mailEnabled": true,
+      "securityEnabled": false,
+      "visibility": "Public",
+      "resourceProvisioningOptions": [
+        "Team"
+      ],
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "expirationDateTime": null,
+      "renewedDateTime": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000303",
+      "displayName": "DEP-Marketing",
+      "groupTypes": [
+        "Unified"
+      ],
+      "mailEnabled": true,
+      "securityEnabled": false,
+      "visibility": "Public",
+      "resourceProvisioningOptions": [],
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "expirationDateTime": "2027-03-01T00:00:00Z",
+      "renewedDateTime": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000304",
+      "displayName": "TMP-old-project",
+      "groupTypes": [
+        "Unified"
+      ],
+      "mailEnabled": true,
+      "securityEnabled": false,
+      "visibility": "Private",
+      "resourceProvisioningOptions": [],
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "expirationDateTime": "2027-03-01T00:00:00Z",
+      "renewedDateTime": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000305",
+      "displayName": "VPN Users",
+      "groupTypes": [],
+      "mailEnabled": false,
+      "securityEnabled": true,
+      "visibility": null,
+      "resourceProvisioningOptions": [],
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "expirationDateTime": null,
+      "renewedDateTime": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000306",
+      "displayName": "PRJ-Zeus",
+      "groupTypes": [
+        "Unified"
+      ],
+      "mailEnabled": true,
+      "securityEnabled": false,
+      "visibility": "Private",
+      "resourceProvisioningOptions": [
+        "Team"
+      ],
+      "createdDateTime": "2025-03-01T00:00:00Z",
+      "expirationDateTime": "2027-03-01T00:00:00Z",
+      "renewedDateTime": "2026-03-01T00:00:00Z"
+    }
+  ]
+}

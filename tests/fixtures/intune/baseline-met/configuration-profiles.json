@@ -1,0 +1,23 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#deviceManagement/example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.windowsWifiConfiguration",
+      "id": "00000000-0000-0000-0000-000000000b11",
+      "displayName": "Wi-Fi corporate",
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.allDevicesAssignmentTarget"
+          }
+        },
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.exclusionGroupAssignmentTarget",
+            "groupId": "00000000-0000-0000-0000-0000000009a2"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000a51",
+      "appId": "00000000-0000-0000-0000-000000000a41",
+      "displayName": "Example Payroll Export",
+      "passwordCredentials": [
+        {
+          "keyId": "00000000-0000-0000-0000-000000000f21",
+          "displayName": "prod",
+          "endDateTime": "2026-11-15T00:00:00Z"
+        }
+      ],
+      "keyCredentials": []
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000a52",
+      "appId": "00000000-0000-0000-0000-000000000a42",
+      "displayName": "Example Legacy Portal",
+      "passwordCredentials": [
+        {
+          "keyId": "00000000-0000-0000-0000-000000000f22",
+          "displayName": "old",
+          "endDateTime": "2026-08-01T00:00:00Z"
+        }
+      ],
+      "keyCredentials": []
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000a53",
+      "appId": "00000000-0000-0000-0000-000000000a43",
+      "displayName": "Example Wiki",
+      "passwordCredentials": [],
+      "keyCredentials": [
+        {
+          "keyId": "00000000-0000-0000-0000-000000000f23",
+          "displayName": "CN=wiki",
+          "endDateTime": "2028-01-01T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}

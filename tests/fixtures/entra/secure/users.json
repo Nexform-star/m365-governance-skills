@@ -1,0 +1,65 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000101",
+      "displayName": "Admin One",
+      "userPrincipalName": "admin.one@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000102",
+      "displayName": "Admin Two",
+      "userPrincipalName": "admin.two@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-09-20T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000106",
+      "displayName": "Break Glass One",
+      "userPrincipalName": "breakglass1@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-07-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000107",
+      "displayName": "Break Glass Two",
+      "userPrincipalName": "breakglass2@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2025-01-15T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-07-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000108",
+      "displayName": "Partner User",
+      "userPrincipalName": "partner.user_example.net#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": true,
+      "createdDateTime": "2025-05-01T00:00:00Z",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-09-30T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    }
+  ]
+}

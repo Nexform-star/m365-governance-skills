@@ -1,0 +1,6 @@
+task: Copy events from one shared calendar into the booking tool and read a mailbox folder
+type: Application
+needs:
+  - Calendars.Read
+  - Mail.Read
+  - {permission: User.Read, type: Delegated}

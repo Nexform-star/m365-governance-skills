@@ -1,0 +1,6 @@
+{
+  "settings": {
+    "secureByDefault": false,
+    "deviceComplianceCheckinThresholdDays": 30
+  }
+}

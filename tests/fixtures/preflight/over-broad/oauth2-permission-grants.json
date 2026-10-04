@@ -1,0 +1,28 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "grant-admin",
+      "clientId": "00000000-0000-0000-0000-0000000005e1",
+      "consentType": "AllPrincipals",
+      "principalId": null,
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "scope": "User.Read Files.Read.All"
+    },
+    {
+      "id": "grant-user",
+      "clientId": "00000000-0000-0000-0000-0000000005e1",
+      "consentType": "Principal",
+      "principalId": "00000000-0000-0000-0000-000000000103",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "scope": " Mail.Send "
+    },
+    {
+      "id": "grant-other-app",
+      "clientId": "00000000-0000-0000-0000-0000000005e9",
+      "consentType": "AllPrincipals",
+      "resourceId": "00000000-0000-0000-0000-0000000005f0",
+      "scope": "Directory.ReadWrite.All"
+    }
+  ]
+}

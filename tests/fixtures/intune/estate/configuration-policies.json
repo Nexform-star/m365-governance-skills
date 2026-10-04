@@ -1,0 +1,18 @@
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/configurationPolicies",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000b21",
+      "name": "Edge baseline",
+      "platforms": "windows10",
+      "technologies": "mdm",
+      "assignments": [
+        {
+          "target": {
+            "@odata.type": "#microsoft.graph.allLicensedUsersAssignmentTarget"
+          }
+        }
+      ]
+    }
+  ]
+}

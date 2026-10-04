@@ -1,0 +1,6 @@
+review_name: "Q4 2026 access review"
+credential_window_days: 90
+sensitive_group_pattern: "(?i)(finance|payroll)"
+reviewers:
+  privileged-roles: security-lead@example.com
+  guests-per-group: collaboration-owner@example.com

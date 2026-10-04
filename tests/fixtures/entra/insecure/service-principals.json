@@ -1,0 +1,41 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-0000000005f0",
+      "appId": "00000003-0000-0000-c000-000000000000",
+      "displayName": "Microsoft Graph",
+      "appRoles": [
+        {
+          "id": "00000000-0000-0000-0000-000000000e01",
+          "value": "Directory.ReadWrite.All",
+          "displayName": "Read and write directory data"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000e02",
+          "value": "Mail.Send",
+          "displayName": "Send mail as any user"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000e03",
+          "value": "User.Read.All",
+          "displayName": "Read all users' full profiles"
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000005f1",
+      "appId": "00000000-0000-0000-0000-000000000a83",
+      "displayName": "Example Sync Connector",
+      "servicePrincipalType": "Application",
+      "appRoles": []
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000005f2",
+      "appId": "00000000-0000-0000-0000-000000000a84",
+      "displayName": "Example Reporting",
+      "servicePrincipalType": "Application",
+      "appRoles": []
+    }
+  ]
+}

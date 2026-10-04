@@ -1,0 +1,19 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-0000000005d1",
+      "appId": "00000000-0000-0000-0000-000000000a44",
+      "displayName": "Example HR Provisioning",
+      "servicePrincipalType": "Application",
+      "passwordCredentials": [],
+      "keyCredentials": [
+        {
+          "keyId": "00000000-0000-0000-0000-000000000f24",
+          "displayName": "CN=hr-sync",
+          "endDateTime": "2026-12-20T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}

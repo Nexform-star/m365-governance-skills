@@ -1,0 +1,47 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#deviceManagement/example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000d01",
+      "deviceName": "WIN-001",
+      "operatingSystem": "Windows",
+      "osVersion": "10.0.22631.4317",
+      "complianceState": "compliant",
+      "lastSyncDateTime": "2026-10-03T09:00:00Z",
+      "managedDeviceOwnerType": "company",
+      "isEncrypted": true,
+      "jailBroken": "False",
+      "userPrincipalName": "user.one@example.com",
+      "userDisplayName": "User One",
+      "enrolledDateTime": "2025-02-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000d03",
+      "deviceName": "MAC-001",
+      "operatingSystem": "macOS",
+      "osVersion": "14.6.1",
+      "complianceState": "compliant",
+      "lastSyncDateTime": "2026-10-02T09:00:00Z",
+      "managedDeviceOwnerType": "company",
+      "isEncrypted": true,
+      "jailBroken": "False",
+      "userPrincipalName": "user.three@example.com",
+      "userDisplayName": "User Three",
+      "enrolledDateTime": "2025-02-01T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000d04",
+      "deviceName": "IPH-001",
+      "operatingSystem": "iPadOS",
+      "osVersion": "17.6",
+      "complianceState": "compliant",
+      "lastSyncDateTime": "2026-10-01T09:00:00Z",
+      "managedDeviceOwnerType": "company",
+      "isEncrypted": true,
+      "jailBroken": "False",
+      "userPrincipalName": "user.four@example.com",
+      "userDisplayName": "User Four",
+      "enrolledDateTime": "2025-02-01T00:00:00Z"
+    }
+  ]
+}

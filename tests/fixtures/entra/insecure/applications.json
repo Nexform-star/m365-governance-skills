@@ -1,0 +1,43 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000a91",
+      "appId": "00000000-0000-0000-0000-000000000a81",
+      "displayName": "Example Payroll Export",
+      "passwordCredentials": [
+        {
+          "keyId": "00000000-0000-0000-0000-000000000f01",
+          "displayName": "prod secret",
+          "startDateTime": "2025-01-01T00:00:00Z",
+          "endDateTime": "2027-12-31T00:00:00Z",
+          "hint": "abc"
+        },
+        {
+          "keyId": "00000000-0000-0000-0000-000000000f02",
+          "displayName": "old secret",
+          "startDateTime": "2025-06-01T00:00:00Z",
+          "endDateTime": "2026-06-01T00:00:00Z",
+          "hint": "def"
+        }
+      ],
+      "keyCredentials": [
+        {
+          "keyId": "00000000-0000-0000-0000-000000000f03",
+          "displayName": "CN=example-payroll",
+          "type": "AsymmetricX509Cert",
+          "usage": "Verify",
+          "startDateTime": "2025-10-20T00:00:00Z",
+          "endDateTime": "2026-10-20T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000a92",
+      "appId": "00000000-0000-0000-0000-000000000a82",
+      "displayName": "Example Intranet",
+      "passwordCredentials": [],
+      "keyCredentials": []
+    }
+  ]
+}
