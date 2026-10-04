@@ -1,0 +1,179 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000401",
+      "displayName": "Lee Left",
+      "userPrincipalName": "left.employee@example.com",
+      "userType": "Member",
+      "accountEnabled": false,
+      "createdDateTime": "2023-02-01T00:00:00Z",
+      "assignedLicenses": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "disabledPlans": []
+        }
+      ],
+      "licenseAssignmentStates": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "assignedByGroup": null,
+          "state": "Active",
+          "error": "None",
+          "disabledPlans": []
+        }
+      ],
+      "signInActivity": {
+        "lastSignInDateTime": "2026-06-01T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000402",
+      "displayName": "Nev Unused",
+      "userPrincipalName": "never.used@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2026-05-01T00:00:00Z",
+      "assignedLicenses": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c03",
+          "disabledPlans": []
+        }
+      ],
+      "licenseAssignmentStates": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c03",
+          "assignedByGroup": null,
+          "state": "Active",
+          "error": "None",
+          "disabledPlans": []
+        }
+      ],
+      "signInActivity": {
+        "lastSignInDateTime": null,
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000403",
+      "displayName": "Dee Double",
+      "userPrincipalName": "double.licensed@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2024-03-01T00:00:00Z",
+      "assignedLicenses": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "disabledPlans": []
+        },
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c03",
+          "disabledPlans": []
+        }
+      ],
+      "licenseAssignmentStates": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "assignedByGroup": null,
+          "state": "Active",
+          "error": "None",
+          "disabledPlans": []
+        },
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c03",
+          "assignedByGroup": null,
+          "state": "Active",
+          "error": "None",
+          "disabledPlans": []
+        }
+      ],
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-02T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000404",
+      "displayName": "Quinn Quiet",
+      "userPrincipalName": "quiet.user@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2024-03-01T00:00:00Z",
+      "assignedLicenses": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c03",
+          "disabledPlans": []
+        }
+      ],
+      "licenseAssignmentStates": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c03",
+          "assignedByGroup": null,
+          "state": "Active",
+          "error": "None",
+          "disabledPlans": []
+        }
+      ],
+      "signInActivity": {
+        "lastSignInDateTime": "2026-05-15T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000405",
+      "displayName": "Gil Error",
+      "userPrincipalName": "group.error@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2026-09-01T00:00:00Z",
+      "assignedLicenses": [],
+      "licenseAssignmentStates": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "assignedByGroup": "00000000-0000-0000-0000-000000000806",
+          "state": "Error",
+          "error": "CountViolation",
+          "disabledPlans": []
+        }
+      ],
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-01T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000406",
+      "displayName": "Ada Active",
+      "userPrincipalName": "active.user@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2024-03-01T00:00:00Z",
+      "assignedLicenses": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "disabledPlans": [
+            "00000000-0000-0000-0000-000000000d16",
+            "00000000-0000-0000-0000-000000000d17"
+          ]
+        }
+      ],
+      "licenseAssignmentStates": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "assignedByGroup": "00000000-0000-0000-0000-000000000806",
+          "state": "Active",
+          "error": "None",
+          "disabledPlans": [
+            "00000000-0000-0000-0000-000000000d16",
+            "00000000-0000-0000-0000-000000000d17"
+          ]
+        }
+      ],
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-03T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    }
+  ]
+}

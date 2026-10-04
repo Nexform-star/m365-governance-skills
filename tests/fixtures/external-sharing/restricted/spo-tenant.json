@@ -1,0 +1,5 @@
+{
+  "SharingCapability": "ExistingExternalUserSharingOnly",
+  "OneDriveSharingCapability": "ExistingExternalUserSharingOnly",
+  "RequireAnonymousLinksExpireInDays": 30
+}

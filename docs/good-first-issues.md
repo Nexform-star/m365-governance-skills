@@ -1,6 +1,6 @@
 # Good first issues
 
-Small, well-specified pieces of work for a first contribution. Each is self-contained, has a test to add, and needs no Microsoft 365 tenant, credentials or network access. Read [CONTRIBUTING.md](../CONTRIBUTING.md) first: standard library only, tests with every change, scripts never call Microsoft Graph, fixtures use example ids and `example.com` users, plain language without em-dashes. If you change `_graphio.py`, copy it to all five skills.
+Small, well-specified pieces of work for a first contribution. Each is self-contained, has a test to add, and needs no Microsoft 365 tenant, credentials or network access. Read [CONTRIBUTING.md](../CONTRIBUTING.md) first: standard library only, tests with every change, scripts never call Microsoft Graph, fixtures use example ids and `example.com` users, plain language without em-dashes. If you change `_graphio.py`, copy it to every skill.
 
 To claim one, open an issue with the title below (or comment on the existing one) and say you are working on it. Run `python3 -m pytest -q`, `python3 -m ruff check .` and `python3 scripts/validate_plugins.py` before opening the pull request.
 
@@ -66,3 +66,65 @@ To claim one, open an issue with the title below (or comment on the existing one
 - Optional input `service-principal-sign-ins.json`; when present, rows for service principals show the latest of the reported sign-in dates.
 - The export (command or REST path and the AuditLog.Read.All permission) is added to `SKILL.md`, with a note that it is a beta endpoint.
 - A fixture and a test.
+
+## 7. conditional-access-gap-analysis: no policy blocks device code flow
+
+**Labels:** good first issue, conditional-access-gap-analysis, python
+
+**Context.** Conditional Access can block the device code authentication flow (`conditions.authenticationFlows.transferMethods` containing `deviceCodeFlow`, grant Block). Device code phishing is common, and `ca_gaps.py` does not look at authentication flows yet.
+
+**Acceptance criteria.**
+- New check `CA-GAP-DEVICE-CODE` (LOW) when no enabled policy for All users blocks `deviceCodeFlow`.
+- The `baseline-met` fixture gains such a policy (so it stays clean) and the `gaps` fixture does not; a test in `tests/test_ca_gaps.py`.
+- The docstring, `SKILL.md` and the README coverage section list the check.
+
+## 8. conditional-access-gap-analysis: named locations no policy uses
+
+**Labels:** good first issue, conditional-access-gap-analysis, python
+
+**Context.** `named-locations.json` is read only for trusted IP ranges. A named location that no policy includes or excludes is clutter, and a trusted one still affects risk detection.
+
+**Acceptance criteria.**
+- New check `CA-LOCATION-UNUSED` (INFO) for a named location whose id appears in no policy's `conditions.locations` (enabled, report-only or disabled).
+- A fixture location that triggers it, one that must not, and a test.
+
+## 9. privileged-access-review: write the hygiene score table as CSV
+
+**Labels:** good first issue, privileged-access-review, python
+
+**Context.** The admin hygiene score is printed in Markdown and JSON. Reviewers often want it in a spreadsheet.
+
+**Acceptance criteria.**
+- Option `--csv <path>` writes one row per account with columns `account, break_glass, score, roles, methods, evidence` (lists joined with `; `), after `--redact` is applied.
+- A test that checks the header, the row count and that redaction applies to the file.
+- `SKILL.md` lists the option.
+
+## 10. privileged-access-review: eligible Global Administrator with no end date
+
+**Labels:** good first issue, privileged-access-review, python
+
+**Context.** An eligible assignment with no `endDateTime` never comes up for renewal. For Global Administrator that is usually not intended.
+
+**Acceptance criteria.**
+- New check `PIM-ELIGIBLE-NO-EXPIRY` (LOW) for eligible privileged assignments with no `endDateTime`; config key `eligible_no_expiry_roles` (default `[Global Administrator]`).
+- A fixture eligibility that triggers it, one with an end date that must not, and a test.
+
+## 11. guest-and-external-sharing-review: disabled guests still in groups
+
+**Labels:** good first issue, guest-and-external-sharing-review, python
+
+**Context.** Disabling a guest is a common first step before removal, but the guest stays in its groups and reappears if re-enabled. `external_sharing.py` already knows `accountEnabled` and group membership.
+
+**Acceptance criteria.**
+- New check `GUEST-DISABLED-IN-GROUPS` (LOW) for a guest with `accountEnabled` false that is still a member of at least one group; the evidence lists the groups.
+- A fixture guest and a test.
+
+## 12. license-and-service-plan-audit: licences assigned to guests
+
+**Labels:** good first issue, license-and-service-plan-audit, python
+
+**Context.** Guests rarely need a paid licence in the host tenant; a licensed guest is usually a mistake or a leftover from a migration. `users.json` already carries `userType` and `assignedLicenses`.
+
+**Acceptance criteria.**
+- New check `LIC-GUEST-LICENSED` (LOW) for a user with `userType` Guest (or `#EXT#` in the user principal name) who holds a licence; the licence is added to the reclaim list with the reason "guest account".
+- A fixture guest and a test.

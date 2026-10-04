@@ -10,6 +10,10 @@ SCRIPTS = {
     "intune-baseline-check": "intune_baseline.py",
     "teams-and-groups-sprawl": "groups_sprawl.py",
     "access-review-pack": "access_review_pack.py",
+    "conditional-access-gap-analysis": "ca_gaps.py",
+    "privileged-access-review": "pim_review.py",
+    "guest-and-external-sharing-review": "external_sharing.py",
+    "license-and-service-plan-audit": "license_audit.py",
 }
 gio = load_script("entra-posture-review", "_graphio.py")
 
@@ -17,7 +21,7 @@ gio = load_script("entra-posture-review", "_graphio.py")
 @pytest.mark.parametrize("helper", ["_graphio.py", "_miniyaml.py"])
 def test_helper_copies_are_identical(helper):
     copies = {skill: (SKILLS / skill / "scripts" / helper).read_text() for skill in SCRIPTS}
-    assert len(set(copies.values())) == 1, f"{helper} differs between skills: copy one version to all five"
+    assert len(set(copies.values())) == 1, f"{helper} differs between skills: copy one version to every skill"
 
 
 @pytest.mark.parametrize("skill", sorted(SCRIPTS))
@@ -67,6 +71,10 @@ def test_cell_keeps_untrusted_text_in_its_cell():
     ("intune-baseline-check", "intune_baseline.py", "example-config.yaml"),
     ("teams-and-groups-sprawl", "groups_sprawl.py", "example-config.yaml"),
     ("access-review-pack", "access_review_pack.py", "example-config.yaml"),
+    ("conditional-access-gap-analysis", "ca_gaps.py", "example-config.yaml"),
+    ("privileged-access-review", "pim_review.py", "example-config.yaml"),
+    ("guest-and-external-sharing-review", "external_sharing.py", "example-config.yaml"),
+    ("license-and-service-plan-audit", "license_audit.py", "example-config.yaml"),
 ])
 def test_reference_configs_load(skill, script, ref):
     mod = load_script(skill, script)

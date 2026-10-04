@@ -1,0 +1,23 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "re-1",
+      "principalId": "00000000-0000-0000-0000-000000000202",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/",
+      "memberType": "Direct",
+      "startDateTime": "2025-06-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "re-2",
+      "principalId": "00000000-0000-0000-0000-000000000203",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a11",
+      "directoryScopeId": "/",
+      "memberType": "Direct",
+      "startDateTime": "2026-01-10T00:00:00Z",
+      "endDateTime": null
+    }
+  ]
+}

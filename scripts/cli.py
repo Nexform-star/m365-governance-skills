@@ -15,7 +15,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 
 PROG = "m365-governance"
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,6 +47,26 @@ COMMANDS: dict[str, tuple[str, str, str]] = {
         "access-review-pack",
         "access_review_pack.py",
         "Quarterly access review checklist and sign-off CSV",
+    ),
+    "ca-gaps": (
+        "conditional-access-gap-analysis",
+        "ca_gaps.py",
+        "Conditional Access gaps, exclusions and a coverage matrix",
+    ),
+    "pim-review": (
+        "privileged-access-review",
+        "pim_review.py",
+        "Privileged role holders, PIM use and an admin hygiene score",
+    ),
+    "external-sharing": (
+        "guest-and-external-sharing-review",
+        "external_sharing.py",
+        "Guests, external sharing settings and a draft removal list",
+    ),
+    "license-audit": (
+        "license-and-service-plan-audit",
+        "license_audit.py",
+        "Licence waste, overlaps, licensing errors and a reclaim list",
     ),
 }
 

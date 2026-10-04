@@ -1,0 +1,38 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000406",
+      "displayName": "Ada Active",
+      "userPrincipalName": "active.user@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2024-03-01T00:00:00Z",
+      "assignedLicenses": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "disabledPlans": [
+            "00000000-0000-0000-0000-000000000d16",
+            "00000000-0000-0000-0000-000000000d17"
+          ]
+        }
+      ],
+      "licenseAssignmentStates": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c05",
+          "assignedByGroup": "00000000-0000-0000-0000-000000000806",
+          "state": "Active",
+          "error": "None",
+          "disabledPlans": [
+            "00000000-0000-0000-0000-000000000d16",
+            "00000000-0000-0000-0000-000000000d17"
+          ]
+        }
+      ],
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-03T09:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    }
+  ]
+}

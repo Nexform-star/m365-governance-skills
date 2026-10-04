@@ -1,0 +1,18 @@
+# Config for ca_gaps.py. Every key is optional.
+# Break-glass (emergency access) accounts: object ids or user principal names. They are expected to be excluded from
+# every policy; the script reports any enabled policy that still applies to them.
+break_glass:
+  - 00000000-0000-0000-0000-000000000001
+  - breakglass2@example.com
+# Groups excluded on purpose because they hold the break-glass accounts.
+break_glass_groups:
+  - 00000000-0000-0000-0000-000000000009
+# Every other exclusion needs a reason. List the user, group or role id (or UPN) with the reason and where it is recorded.
+explained_exclusions:
+  00000000-0000-0000-0000-000000000901: "Scanner service accounts on the office network, change CHG-0000"
+# A policy in report-only mode for longer than this many days is reported.
+report_only_max_days: 30
+# A trusted named location with an IPv4 range wider than this prefix is reported.
+broad_ipv4_prefix: 16
+# Names listed in one finding before "and N more".
+list_limit: 10

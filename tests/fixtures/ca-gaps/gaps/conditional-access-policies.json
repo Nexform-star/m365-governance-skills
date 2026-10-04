@@ -1,0 +1,217 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000c01",
+      "displayName": "Require MFA for all users",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeUsers": [
+            "00000000-0000-0000-0000-0000000001b1"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-000000000901"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ],
+        "locations": {
+          "includeLocations": [
+            "All"
+          ],
+          "excludeLocations": [
+            "AllTrusted"
+          ]
+        }
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c02",
+      "displayName": "Block legacy authentication",
+      "state": "enabledForReportingButNotEnforced",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-03-02T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "exchangeActiveSync",
+          "other"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "block"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c03",
+      "displayName": "Pilot - require compliant device",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeGroups": [
+            "00000000-0000-0000-0000-000000000902"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-000000000902"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "compliantDevice"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c04",
+      "displayName": "Admins - require compliant device",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeRoles": [
+            "62e90394-69f5-4237-9190-012177145e10"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "compliantDevice"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c05",
+      "displayName": "Old MFA policy for Office",
+      "state": "disabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "Office365"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000c06",
+      "displayName": "Require MFA for all users (copy)",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeUsers": [
+            "00000000-0000-0000-0000-0000000001b1"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-000000000901"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ],
+        "locations": {
+          "includeLocations": [
+            "All"
+          ],
+          "excludeLocations": [
+            "AllTrusted"
+          ]
+        }
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      },
+      "sessionControls": null
+    }
+  ]
+}

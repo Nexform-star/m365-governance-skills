@@ -1,0 +1,38 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.ipNamedLocation",
+      "id": "00000000-0000-0000-0000-000000000e01",
+      "displayName": "Head office",
+      "isTrusted": true,
+      "ipRanges": [
+        {
+          "@odata.type": "#microsoft.graph.iPv4CidrRange",
+          "cidrAddress": "203.0.113.0/24"
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.ipNamedLocation",
+      "id": "00000000-0000-0000-0000-000000000e02",
+      "displayName": "Old VPN range",
+      "isTrusted": true,
+      "ipRanges": [
+        {
+          "@odata.type": "#microsoft.graph.iPv4CidrRange",
+          "cidrAddress": "10.0.0.0/8"
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.countryNamedLocation",
+      "id": "00000000-0000-0000-0000-000000000e03",
+      "displayName": "Blocked countries",
+      "countriesAndRegions": [
+        "AQ"
+      ],
+      "includeUnknownCountriesAndRegions": false
+    }
+  ]
+}

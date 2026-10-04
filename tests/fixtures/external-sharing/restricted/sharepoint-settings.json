@@ -1,0 +1,9 @@
+{
+  "sharingCapability": "existingExternalUserSharingOnly",
+  "sharingDomainRestrictionMode": "allowList",
+  "sharingAllowedDomainList": [
+    "example.org"
+  ],
+  "sharingBlockedDomainList": [],
+  "isResharingByExternalUsersEnabled": false
+}

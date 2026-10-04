@@ -1,0 +1,11 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-0000000005a1",
+      "appId": "00000000-0000-0000-0000-0000000005a2",
+      "displayName": "Example Provisioning App",
+      "servicePrincipalType": "Application"
+    }
+  ]
+}

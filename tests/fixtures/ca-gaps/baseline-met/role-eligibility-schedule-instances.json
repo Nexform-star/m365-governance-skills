@@ -1,0 +1,14 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "re-1",
+      "principalId": "00000000-0000-0000-0000-000000000102",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a01",
+      "directoryScopeId": "/",
+      "memberType": "Direct",
+      "startDateTime": "2026-01-01T00:00:00Z",
+      "endDateTime": null
+    }
+  ]
+}

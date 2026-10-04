@@ -1,0 +1,17 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000901",
+      "displayName": "CA Exclusion - Service Accounts"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000902",
+      "displayName": "Pilot Users"
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000009b0",
+      "displayName": "Break Glass Accounts"
+    }
+  ]
+}

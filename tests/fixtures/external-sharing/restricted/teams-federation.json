@@ -1,0 +1,11 @@
+{
+  "Identity": "Global",
+  "AllowFederatedUsers": true,
+  "AllowedDomains": [
+    {
+      "Domain": "example.org"
+    }
+  ],
+  "BlockedDomains": [],
+  "AllowTeamsConsumer": false
+}

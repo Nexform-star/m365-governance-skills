@@ -1,0 +1,15 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000801",
+      "displayName": "Finance Approvers",
+      "visibility": "Private"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000802",
+      "displayName": "Project Apollo",
+      "visibility": "Private"
+    }
+  ]
+}

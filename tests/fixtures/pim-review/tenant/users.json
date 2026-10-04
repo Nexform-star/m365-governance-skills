@@ -1,0 +1,107 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000201",
+      "displayName": "Gary Daily",
+      "userPrincipalName": "ga.daily@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "mail": "ga.daily@example.com",
+      "assignedLicenses": [
+        {
+          "skuId": "00000000-0000-0000-0000-000000000c03",
+          "disabledPlans": []
+        }
+      ],
+      "assignedPlans": [
+        {
+          "assignedDateTime": "2024-02-01T00:00:00Z",
+          "capabilityStatus": "Enabled",
+          "service": "exchange",
+          "servicePlanId": "00000000-0000-0000-0000-000000000d01"
+        }
+      ],
+      "onPremisesSyncEnabled": null,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-03T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000202",
+      "displayName": "Grace Clean",
+      "userPrincipalName": "ga.clean@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "mail": null,
+      "assignedLicenses": [],
+      "assignedPlans": [],
+      "onPremisesSyncEnabled": null,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-09-28T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000203",
+      "displayName": "Sam Eligible",
+      "userPrincipalName": "sec.eligible@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "mail": null,
+      "assignedLicenses": [],
+      "assignedPlans": [],
+      "onPremisesSyncEnabled": null,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-05-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000204",
+      "displayName": "Hana Scoped",
+      "userPrincipalName": "helpdesk.scoped@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "mail": null,
+      "assignedLicenses": [],
+      "assignedPlans": [],
+      "onPremisesSyncEnabled": true,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000205",
+      "displayName": "Rita Reports",
+      "userPrincipalName": "reports.reader@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "mail": null,
+      "assignedLicenses": [],
+      "assignedPlans": [],
+      "onPremisesSyncEnabled": null,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-01T08:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000002b1",
+      "displayName": "Break Glass One",
+      "userPrincipalName": "breakglass1@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "mail": null,
+      "assignedLicenses": [],
+      "assignedPlans": [],
+      "onPremisesSyncEnabled": null,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-09-01T07:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    }
+  ]
+}

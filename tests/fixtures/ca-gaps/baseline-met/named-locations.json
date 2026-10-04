@@ -1,0 +1,17 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.ipNamedLocation",
+      "id": "00000000-0000-0000-0000-000000000e01",
+      "displayName": "Head office",
+      "isTrusted": true,
+      "ipRanges": [
+        {
+          "@odata.type": "#microsoft.graph.iPv4CidrRange",
+          "cidrAddress": "203.0.113.0/24"
+        }
+      ]
+    }
+  ]
+}

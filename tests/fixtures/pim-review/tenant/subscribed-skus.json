@@ -1,0 +1,13 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "skuId": "00000000-0000-0000-0000-000000000c03",
+      "skuPartNumber": "SPE_E3",
+      "prepaidUnits": {
+        "enabled": 10
+      },
+      "consumedUnits": 6
+    }
+  ]
+}

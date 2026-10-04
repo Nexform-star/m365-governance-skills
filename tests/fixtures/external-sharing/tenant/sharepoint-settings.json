@@ -1,0 +1,7 @@
+{
+  "sharingCapability": "externalUserAndGuestSharing",
+  "sharingDomainRestrictionMode": "none",
+  "sharingAllowedDomainList": [],
+  "sharingBlockedDomainList": [],
+  "isResharingByExternalUsersEnabled": true
+}

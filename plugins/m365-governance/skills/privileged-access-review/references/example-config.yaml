@@ -1,0 +1,17 @@
+# Config for pim_review.py. Every key is optional.
+# Break-glass (emergency access) accounts: object ids or user principal names. They are expected to hold Global
+# Administrator permanently and are not reported for it.
+break_glass:
+  - 00000000-0000-0000-0000-000000000001
+  - breakglass2@example.com
+# Role display names treated as privileged. Leave unset to use the built-in list (Global Administrator, Privileged Role
+# Administrator, Security Administrator, Exchange Administrator and others).
+# privileged_roles:
+#   - Global Administrator
+#   - Privileged Role Administrator
+# An admin with no sign-in for this many days is stale.
+stale_days: 90
+# An eligible assignment older than this with no activation is reported.
+unused_eligible_days: 90
+# Admin accounts allowed a mailbox or licence. Record the reason where your exceptions are kept.
+daily_use_exempt: []

@@ -1,0 +1,75 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "ra-1",
+      "principalId": "00000000-0000-0000-0000-000000000201",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/",
+      "principal": {
+        "@odata.type": "#microsoft.graph.user",
+        "id": "00000000-0000-0000-0000-000000000201",
+        "userPrincipalName": "ga.daily@example.com",
+        "displayName": "Gary Daily"
+      }
+    },
+    {
+      "id": "ra-2",
+      "principalId": "00000000-0000-0000-0000-0000000002b1",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/",
+      "principal": {
+        "@odata.type": "#microsoft.graph.user",
+        "id": "00000000-0000-0000-0000-0000000002b1",
+        "userPrincipalName": "breakglass1@example.com",
+        "displayName": "Break Glass One"
+      }
+    },
+    {
+      "id": "ra-3",
+      "principalId": "00000000-0000-0000-0000-000000000204",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a12",
+      "directoryScopeId": "/administrativeUnits/00000000-0000-0000-0000-000000000d0a",
+      "principal": {
+        "@odata.type": "#microsoft.graph.user",
+        "id": "00000000-0000-0000-0000-000000000204",
+        "userPrincipalName": "helpdesk.scoped@example.com",
+        "displayName": "Hana Scoped"
+      }
+    },
+    {
+      "id": "ra-4",
+      "principalId": "00000000-0000-0000-0000-000000000205",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a14",
+      "directoryScopeId": "/",
+      "principal": {
+        "@odata.type": "#microsoft.graph.user",
+        "id": "00000000-0000-0000-0000-000000000205",
+        "userPrincipalName": "reports.reader@example.com",
+        "displayName": "Rita Reports"
+      }
+    },
+    {
+      "id": "ra-5",
+      "principalId": "00000000-0000-0000-0000-0000000005a1",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a13",
+      "directoryScopeId": "/",
+      "principal": {
+        "@odata.type": "#microsoft.graph.servicePrincipal",
+        "id": "00000000-0000-0000-0000-0000000005a1",
+        "displayName": "Example Provisioning App"
+      }
+    },
+    {
+      "id": "ra-6",
+      "principalId": "00000000-0000-0000-0000-0000000009c1",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a12",
+      "directoryScopeId": "/",
+      "principal": {
+        "@odata.type": "#microsoft.graph.group",
+        "id": "00000000-0000-0000-0000-0000000009c1",
+        "displayName": "Helpdesk Tier 2"
+      }
+    }
+  ]
+}

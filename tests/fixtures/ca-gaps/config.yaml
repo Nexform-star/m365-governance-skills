@@ -1,0 +1,7 @@
+# Config for the ca_gaps.py tests. Example ids only.
+break_glass:
+  - breakglass1@example.com
+  - 00000000-0000-0000-0000-0000000001b2
+break_glass_groups:
+  - 00000000-0000-0000-0000-0000000009b0
+report_only_max_days: 30

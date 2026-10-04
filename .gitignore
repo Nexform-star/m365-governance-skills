@@ -12,6 +12,7 @@ venv/
 preflight-*/
 access-review-20*/
 cleanup.csv
+*-draft.csv
 *-findings.json
 
 # Editors and OS

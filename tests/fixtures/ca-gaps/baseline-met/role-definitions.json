@@ -1,0 +1,23 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "62e90394-69f5-4237-9190-012177145e10",
+      "templateId": "62e90394-69f5-4237-9190-012177145e10",
+      "displayName": "Global Administrator",
+      "isBuiltIn": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000a01",
+      "templateId": "00000000-0000-0000-0000-000000000a01",
+      "displayName": "Security Administrator",
+      "isBuiltIn": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000a02",
+      "templateId": "00000000-0000-0000-0000-000000000a02",
+      "displayName": "Reports Reader",
+      "isBuiltIn": true
+    }
+  ]
+}

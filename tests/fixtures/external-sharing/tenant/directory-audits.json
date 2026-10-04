@@ -1,0 +1,43 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "audit-1",
+      "category": "UserManagement",
+      "activityDisplayName": "Invite external user",
+      "activityDateTime": "2026-04-01T00:00:00Z",
+      "initiatedBy": {
+        "user": {
+          "id": "00000000-0000-0000-0000-0000000003a1",
+          "userPrincipalName": "fay.finance@example.com"
+        }
+      },
+      "targetResources": [
+        {
+          "id": "00000000-0000-0000-0000-000000000301",
+          "userPrincipalName": "pat_example.net#EXT#@example.com",
+          "type": "User"
+        }
+      ]
+    },
+    {
+      "id": "audit-2",
+      "category": "UserManagement",
+      "activityDisplayName": "Invite external user",
+      "activityDateTime": "2026-08-01T00:00:00Z",
+      "initiatedBy": {
+        "user": {
+          "id": "00000000-0000-0000-0000-0000000003a2",
+          "userPrincipalName": "project.lead@example.com"
+        }
+      },
+      "targetResources": [
+        {
+          "id": "00000000-0000-0000-0000-000000000303",
+          "userPrincipalName": "new.partner_example.org#EXT#@example.com",
+          "type": "User"
+        }
+      ]
+    }
+  ]
+}

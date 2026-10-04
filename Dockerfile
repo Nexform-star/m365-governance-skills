@@ -25,7 +25,7 @@ RUN set -e; for d in /tmp/skills/*/scripts; do \
 FROM ${PYTHON_IMAGE}
 ARG VERSION=0.0.0-dev
 LABEL org.opencontainers.image.title="m365-governance-skills" \
-      org.opencontainers.image.description="Microsoft 365 governance skill scripts (Graph permission preflight, Entra posture, Intune baseline, groups sprawl, access review) behind one command" \
+      org.opencontainers.image.description="Microsoft 365 governance skill scripts (Graph permission preflight, Entra posture, Conditional Access gaps, privileged access, external sharing, licence audit, Intune baseline, groups sprawl, access review) behind one command" \
       org.opencontainers.image.source="https://github.com/basitalisandhu/m365-governance-skills" \
       org.opencontainers.image.url="https://github.com/basitalisandhu/m365-governance-skills" \
       org.opencontainers.image.licenses="MIT" \

@@ -1,0 +1,33 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000304",
+      "displayName": "Gus Partner",
+      "mail": "good.partner@example.org",
+      "userPrincipalName": "good.partner_example.org#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": true,
+      "createdDateTime": "2026-01-10T00:00:00Z",
+      "externalUserState": "Accepted",
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-02T10:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000305",
+      "displayName": "Fay Finance",
+      "mail": "fay.finance@example.com",
+      "userPrincipalName": "fay.finance@example.com",
+      "userType": "Member",
+      "accountEnabled": true,
+      "createdDateTime": "2024-01-01T00:00:00Z",
+      "externalUserState": null,
+      "signInActivity": {
+        "lastSignInDateTime": "2026-10-03T10:00:00Z",
+        "lastNonInteractiveSignInDateTime": null
+      }
+    }
+  ]
+}

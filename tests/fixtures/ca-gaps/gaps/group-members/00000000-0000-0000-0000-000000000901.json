@@ -1,0 +1,17 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.user",
+      "id": "00000000-0000-0000-0000-000000000103",
+      "displayName": "Scanner Service",
+      "userPrincipalName": "svc.scanner@example.com"
+    },
+    {
+      "@odata.type": "#microsoft.graph.user",
+      "id": "00000000-0000-0000-0000-000000000102",
+      "displayName": "Admin Two",
+      "userPrincipalName": "admin.two@example.com"
+    }
+  ]
+}

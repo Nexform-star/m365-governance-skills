@@ -1,0 +1,29 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "ra-1",
+      "principalId": "00000000-0000-0000-0000-000000000101",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/"
+    },
+    {
+      "id": "ra-2",
+      "principalId": "00000000-0000-0000-0000-0000000001b1",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/"
+    },
+    {
+      "id": "ra-3",
+      "principalId": "00000000-0000-0000-0000-0000000001b2",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/"
+    },
+    {
+      "id": "ra-4",
+      "principalId": "00000000-0000-0000-0000-000000000104",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a02",
+      "directoryScopeId": "/"
+    }
+  ]
+}

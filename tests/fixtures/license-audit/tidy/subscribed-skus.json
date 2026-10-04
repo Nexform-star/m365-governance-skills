@@ -1,0 +1,91 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "skuId": "00000000-0000-0000-0000-000000000c05",
+      "skuPartNumber": "SPE_E5",
+      "capabilityStatus": "Enabled",
+      "appliesTo": "User",
+      "consumedUnits": 1,
+      "prepaidUnits": {
+        "enabled": 1,
+        "suspended": 0,
+        "warning": 0
+      },
+      "servicePlans": [
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d11",
+          "servicePlanName": "EXCHANGE_S_ENTERPRISE",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d12",
+          "servicePlanName": "SHAREPOINTENTERPRISE",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d13",
+          "servicePlanName": "MCOSTANDARD",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d14",
+          "servicePlanName": "TEAMS1",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d15",
+          "servicePlanName": "OFFICESUBSCRIPTION",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d16",
+          "servicePlanName": "YAMMER_ENTERPRISE",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d17",
+          "servicePlanName": "SWAY",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d18",
+          "servicePlanName": "AAD_PREMIUM",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d19",
+          "servicePlanName": "AAD_PREMIUM_P2",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d1a",
+          "servicePlanName": "INTUNE_A",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d1b",
+          "servicePlanName": "MCOEV",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        },
+        {
+          "servicePlanId": "00000000-0000-0000-0000-000000000d1c",
+          "servicePlanName": "ATP_ENTERPRISE",
+          "provisioningStatus": "Success",
+          "appliesTo": "User"
+        }
+      ]
+    }
+  ]
+}

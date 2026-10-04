@@ -4,6 +4,23 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-05
+
+Four new skills, each with a standard-library script, hand-written fixtures with planted problems, and tests. The plugin now has nine skills.
+
+### Added
+
+- `conditional-access-gap-analysis`: `ca_gaps.py` resolves who each Conditional Access policy applies to (users, transitive group members, active and eligible role holders, guests) and checks 17 conditions: MFA for all users and for admins, legacy authentication blocked, compliant or hybrid-joined device for admins, sign-in and user risk policies, session controls for unmanaged devices, break-glass accounts excluded from every enabled policy, exclusions without a recorded reason, exclusion groups that contain admins, policies in report-only mode beyond a configurable age, include and exclude lists that cancel out, policies that reach no user, duplicate policies, very wide trusted named locations, MFA skipped from trusted locations and disabled policies. Prints a policy by persona coverage matrix.
+- `privileged-access-review`: `pim_review.py` reports permanent privileged role assignments (CRITICAL for Global Administrator), eligible assignments never activated, admins with no MFA method or no phishing-resistant method, admin accounts with a mailbox or licences, stale and on-premises synchronised admins, service principals in privileged roles, assignments scoped below the tenant root and roles held by groups, and gives each admin account a hygiene score with one evidence line per deduction.
+- `guest-and-external-sharing-review`: `external_sharing.py` reports guests from blocked or not-allowed domains (CRITICAL when also in a sensitive group), guests in sensitive groups, stale guests, invitations not accepted, SharePoint and OneDrive anyone links and their expiry, sharing with no domain restriction, guest resharing, Teams external access open to all domains and chat with personal Teams accounts. Builds a per-guest access map and a draft removal list (`--csv`).
+- `license-and-service-plan-audit`: `license_audit.py` reports licences on disabled, never-signed-in and inactive accounts, overlapping SKUs on one user (from the SKUs' service plans, or configured pairs), service plans the organisation has decided not to use, group-based licensing errors and unassigned units, with a reclaim list (`--csv`) and counts per SKU. It holds no prices; totals use only unit costs supplied in the config.
+- Dispatcher subcommands `ca-gaps`, `pim-review`, `external-sharing` and `license-audit`, with tests that run each one on its fixtures; the container build check in CI runs their `--help`.
+- Six new starter tasks in `docs/good-first-issues.md` for the new skills.
+
+### Changed
+
+- README, plugin README, manifests and image labels list the nine skills; version 0.2.0 in `pyproject.toml`, `plugin.json`, `marketplace.json` and `scripts/cli.py`.
+
 ## [0.1.1] - 2026-10-04
 
 The skill scripts are published as a container image on GitHub Packages, using only the workflow's `GITHUB_TOKEN`: `ghcr.io/basitalisandhu/m365-governance-skills`, tagged `0.1.1` and `latest`, for linux/amd64 and linux/arm64, with an SPDX SBOM, a build provenance attestation and a keyless cosign signature. The skills themselves are unchanged.

@@ -1,0 +1,15 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.passwordAuthenticationMethod",
+      "id": "00000000-0000-0000-0000-000000000f01"
+    },
+    {
+      "@odata.type": "#microsoft.graph.phoneAuthenticationMethod",
+      "id": "00000000-0000-0000-0000-000000000f02",
+      "phoneType": "mobile",
+      "smsSignInState": "notAllowedByPolicy"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Config for the license_audit.py tests. No prices: tests that need totals write their own unit_costs.
+inactive_days: 90
+never_signed_in_grace_days: 30
+unwanted_service_plans:
+  - YAMMER_ENTERPRISE
+  - SWAY

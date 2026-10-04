@@ -8,6 +8,8 @@ import sys
 import tomllib
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 CLI = ROOT / "scripts" / "cli.py"
 
@@ -68,6 +70,20 @@ def test_exit_code_and_arguments_pass_through():
     result = run("preflight", "--definitely-not-an-option")
     assert result.returncode == 2
     assert "usage: " in result.stderr
+
+
+@pytest.mark.parametrize("name,fixture,expected", [
+    ("ca-gaps", "ca-gaps/gaps", "CA-EXCLUSION-HAS-ADMIN"),
+    ("pim-review", "pim-review/tenant", "PIM-PERMANENT-PRIVILEGED"),
+    ("external-sharing", "external-sharing/tenant", "GUEST-BLOCKED-DOMAIN"),
+    ("license-audit", "license-audit/tenant", "LIC-DISABLED-ACCOUNT"),
+])
+def test_new_subcommands_run_on_their_fixtures(name, fixture, expected):
+    folder = ROOT / "tests" / "fixtures" / fixture
+    config = folder.parent / "config.yaml"
+    result = run(name, str(folder), "--config", str(config), "--as-of", "2026-10-04", "--json")
+    assert result.returncode == 1, result.stderr
+    assert expected in {f["check"] for f in json.loads(result.stdout)["findings"]}
 
 
 def test_version_matches_the_project_version():

@@ -1,10 +1,10 @@
 # Claude Code skills for Microsoft 365 governance
 
-**Microsoft 365 governance skills for Claude Code: Entra ID posture review, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack. Scripts read exported Graph JSON offline.**
+**Microsoft 365 governance skills for Claude Code: Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack. Scripts read exported Graph JSON offline.**
 
-m365-governance-skills is a Claude Code plugin marketplace with one plugin, `m365-governance`, holding five skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.
+m365-governance-skills is a Claude Code plugin marketplace with one plugin, `m365-governance`, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.
 
-It is written for administrators who look after Microsoft 365, Entra ID and Intune for a company or for clients, often alongside other duties. It exists because the governance questions repeat in every tenant (who are the Global Admins, is MFA really enforced, which teams have no owner, what is this connector asking for, what goes into this quarter's access review), and agents now connect to Microsoft 365 with broad Graph permissions. Message triage and daily digests are already covered by first-party plugins; this pack is the governance layer underneath: what can touch the tenant, and is the tenant in the state you think it is.
+It is written for administrators who look after Microsoft 365, Entra ID and Intune for a company or for clients, often alongside other duties. It exists because the governance questions repeat in every tenant (who are the Global Admins, is MFA really enforced and for whom, which guests can still reach what, which licences sit on disabled accounts, which teams have no owner, what is this connector asking for, what goes into this quarter's access review), and agents now connect to Microsoft 365 with broad Graph permissions. Message triage and daily digests are already covered by first-party plugins; this pack is the governance layer underneath: what can touch the tenant, and is the tenant in the state you think it is.
 
 No network access from the scripts, no telemetry. Nothing in this repository changes a tenant: every skill proposes a portal path or a Graph call and runs a change only after you confirm that exact command.
 
@@ -43,10 +43,11 @@ Requirements: Python 3.11 or newer as `python3`. For the export steps only: the 
 The plugin installs as shown in the Quickstart. The skill scripts are also published as one container image on GitHub Packages (linux/amd64 and linux/arm64) for running them without a checkout, for example in CI. The image's entrypoint is `m365-governance <subcommand> [args]`; mount the files to read at `/work`, which is the working directory:
 
 ```bash
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 entra-posture /work/entra-export-2026-10-04 --config /work/config.yaml
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 preflight /work/preflight-myapp --needs /work/preflight-myapp/needs.yaml
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 access-review /work/entra-export-2026-10-04 --out-dir /work/access-review-2026-10
-docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 --help
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 entra-posture /work/entra-export-2026-10-04 --config /work/config.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 preflight /work/preflight-myapp --needs /work/preflight-myapp/needs.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 access-review /work/entra-export-2026-10-04 --out-dir /work/access-review-2026-10
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 license-audit /work/licence-export-2026-10-05 --csv /work/reclaim-draft.csv
+docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 --help
 ```
 
 | Subcommand | Script (skill) |
@@ -56,16 +57,20 @@ docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 --help
 | `intune-baseline` | `intune_baseline.py` (intune-baseline-check) |
 | `groups-sprawl` | `groups_sprawl.py` (teams-and-groups-sprawl) |
 | `access-review` | `access_review_pack.py` (access-review-pack) |
+| `ca-gaps` | `ca_gaps.py` (conditional-access-gap-analysis) |
+| `pim-review` | `pim_review.py` (privileged-access-review) |
+| `external-sharing` | `external_sharing.py` (guest-and-external-sharing-review) |
+| `license-audit` | `license_audit.py` (license-and-service-plan-audit) |
 
 Every subcommand passes its arguments to the script unchanged, so `m365-governance <subcommand> --help` shows the same options as the script. Output files land in the mounted folder. The image has no pip dependencies and runs as uid 1000; on Linux add `--user "$(id -u):$(id -g)"` if the mounted folder is not writable by that uid. From a checkout, `python3 scripts/cli.py` is the same dispatcher.
 
 Each image is signed with cosign (keyless) and has a build provenance attestation and an SPDX SBOM (attached to the GitHub Release). To verify:
 
 ```bash
-cosign verify ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 \
+cosign verify ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 \
   --certificate-identity-regexp '^https://github.com/basitalisandhu/m365-governance-skills/' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
-gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 --owner basitalisandhu
+gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.2.0 --owner basitalisandhu
 ```
 
 ## When to use this
@@ -75,6 +80,10 @@ gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 
 - Which devices are non-compliant or stale, does every platform require encryption and a PIN, are personal devices enrolled: `intune-baseline-check`
 - Which teams have no owner, which groups have guests, which teams are public or inactive, what breaks the naming convention: `teams-and-groups-sprawl`
 - Prepare the quarterly access review: role holders, app owners, sensitive group owners, guests per group, expiring credentials, with a sign-off CSV: `access-review-pack`
+- Who is really covered by MFA, legacy authentication blocking and device policies, which exclusion groups hold admins, which policies are stuck in report-only mode: `conditional-access-gap-analysis`
+- Which admins hold roles permanently, use SMS, have a mailbox on their admin account, or never activate their PIM roles: `privileged-access-review`
+- Which guests are stale, pending or from a blocked domain, which sit in sensitive groups, and whether SharePoint, OneDrive and Teams are open to anyone: `guest-and-external-sharing-review`
+- Which licences sit on disabled or unused accounts, who holds overlapping SKUs, where group-based licensing fails, and what could be reclaimed: `license-and-service-plan-audit`
 
 ## Skills
 
@@ -85,6 +94,10 @@ gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 
 | `intune-baseline-check` | device compliance review, stale devices, baseline evidence | `intune_baseline.py`: per-platform summary and 15 checks across devices, compliance policies, profile assignments and tenant compliance settings |
 | `teams-and-groups-sprawl` | ownerless teams, guest access, naming and expiration, cleanup | `groups_sprawl.py`: findings and a draft cleanup list (CSV) with proposed owners from member managers |
 | `access-review-pack` | quarterly or annual access review, privileged access recertification | `access_review_pack.py`: Markdown reviewer checklist and sign-off CSV (reviewer, decision, date) |
+| `conditional-access-gap-analysis` | "who is not covered by MFA?", Conditional Access redesign, before turning off security defaults | `ca_gaps.py`: 17 checks across baseline coverage, break-glass and other exclusions, report-only age, cancelling and empty policies, duplicates and trusted locations, plus a policy by persona coverage matrix |
+| `privileged-access-review` | admin and PIM review, "which admins still use SMS?" | `pim_review.py`: 10 checks across permanent and unused assignments, authentication methods, daily-use admin accounts, stale and synchronised admins, service principals and scoped assignments, plus an admin hygiene score with evidence |
+| `guest-and-external-sharing-review` | guest clean-up, external sharing settings, a partner relationship ending | `external_sharing.py`: 11 checks across guests and SharePoint, OneDrive and Teams external settings, a per-guest access map and a draft removal list (CSV) |
+| `license-and-service-plan-audit` | licence waste, renewal or true-up, group-based licensing errors | `license_audit.py`: 7 checks, per-SKU counts and a reclaim list (CSV); totals only from unit costs you supply |
 
 ## Data model
 
@@ -102,6 +115,10 @@ Each script's `--help` lists every check id with its severity. In short:
 - `intune-baseline-check` covers device state, compliance policy settings and assignments, profile assignment targets and the "no policy means compliant" setting. Not covered: settings inside configuration profiles, update rings, app protection policies, enrollment restrictions, Autopilot, Defender for Endpoint.
 - `teams-and-groups-sprawl` covers owners, guests, visibility, activity, naming and expiration. Not covered: SharePoint sharing and permissions, private and shared channels, sensitivity labels, dynamic membership rules.
 - `access-review-pack` covers directory roles, app owners, sensitive group owners, guests per group and expiring credentials. Not covered: Azure subscription roles, Exchange and SharePoint role groups, access packages; group-based role assignments are not expanded.
+- `conditional-access-gap-analysis` covers who each policy applies to (users, groups, roles, guests), the baseline (MFA for all users and admins, legacy authentication, admin devices, sign-in and user risk, session controls for unmanaged devices), exclusion hygiene, report-only age, cancelling and empty policies, duplicates and trusted named locations. Not covered: sign-in simulation per platform, client app or location, authentication strength details, terms of use, token protection, workload identity policies and cross-tenant access.
+- `privileged-access-review` covers directory role assignments (active, eligible, permanent, activated), PIM activation history, registered authentication methods of admins, licences and mailbox plans on admin accounts, sign-in age, on-premises sync, service principals in roles and scoped assignments. Not covered: Azure resource roles, PIM role settings, PIM for Groups, Exchange and SharePoint role groups and custom role permissions.
+- `guest-and-external-sharing-review` covers guest accounts (domain, state, sign-in, inviter, groups), SharePoint and OneDrive tenant sharing settings and Teams external access. Not covered: sharing links on individual files and sites, site-level overrides, sensitivity labels, B2B direct connect and cross-tenant access, and guest settings inside Teams.
+- `license-and-service-plan-audit` covers licences on disabled, never-used and inactive accounts, overlapping SKUs by service plan, unwanted service plans, group-based licensing errors and unassigned units. Not covered: per-app usage, prices (only what you supply), billing terms, add-on dependencies, Azure and Dynamics 365 subscriptions.
 
 All findings come from exported data at one point in time and depend on the permissions and licences of the account that exported it. They need human verification before any change.
 
@@ -121,7 +138,7 @@ The skill folders follow the Agent Skills format (a `SKILL.md` with `name` and `
 
 ## FAQ
 
-**Does it need admin rights?** No write rights. The exports need read permissions only (Policy.Read.All, RoleManagement.Read.Directory, Application.Read.All, User.Read.All, AuditLog.Read.All, Group.Read.All, DeviceManagement*.Read.All and similar, as each skill lists) and an account with a reader role such as Global Reader.
+**Does it need admin rights?** No write rights. The exports need read permissions only (Policy.Read.All, RoleManagement.Read.Directory, Application.Read.All, User.Read.All, AuditLog.Read.All, Group.Read.All, GroupMember.Read.All, Organization.Read.All, SharePointTenantSettings.Read.All, DeviceManagement*.Read.All and similar, as each skill lists) and an account with a reader role such as Global Reader.
 
 **Does any script call Microsoft Graph?** No. Scripts read local files only. The tests run fully offline on hand-written fixtures with example ids (`00000000-0000-0000-0000-...`) and `example.com` users.
 
@@ -129,7 +146,13 @@ The skill folders follow the Agent Skills format (a `SKILL.md` with `name` and `
 
 **Why export first instead of calling Graph live?** The saved folder is evidence: the same input gives the same findings, a colleague can re-run the check without tenant access, and the script cannot change anything because it never connects.
 
-**Some exports fail with a licence error.** Sign-in activity needs Entra ID P1 and PIM schedules need P2. The scripts skip the checks whose input is missing and say so in the report.
+**Some exports fail with a licence error.** Sign-in activity and the authentication methods registration report need Entra ID P1, and PIM schedules need P2. The scripts skip the checks whose input is missing and say so in the report.
+
+**Are all exports Graph calls?** Almost. Graph does not publish OneDrive's sharing level, anyone-link expiry or Teams external access, so `guest-and-external-sharing-review` reads two optional PowerShell exports for those (`Get-SPOTenant` and `Get-CsTenantFederationConfiguration`, both read-only `Get-` cmdlets). Without them the other checks still run.
+
+**Does the licence audit know what licences cost?** No. It counts. Totals appear only for SKUs where you put your own unit cost in the config, and the report labels them with the text you give (for example "AUD per user per month").
+
+**Is the admin hygiene score a risk rating?** No. It is a fixed rubric (listed in `pim_review.py --help`) that ranks admin accounts so the worst are reviewed first. Every deduction is shown with its evidence.
 
 **Does it replace Microsoft Secure Score, Entra ID Governance or a CSPM tool?** No. It is a scripted procedure for common governance questions inside Claude Code. Use those products for continuous coverage; use this for a reviewable point-in-time answer.
 

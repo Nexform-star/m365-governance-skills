@@ -1,0 +1,62 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000201",
+      "userPrincipalName": "ga.daily@example.com",
+      "isAdmin": true,
+      "isMfaRegistered": true,
+      "methodsRegistered": [
+        "mobilePhone"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000202",
+      "userPrincipalName": "ga.clean@example.com",
+      "isAdmin": true,
+      "isMfaRegistered": true,
+      "methodsRegistered": [
+        "fido2",
+        "windowsHelloForBusiness",
+        "microsoftAuthenticatorPush"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000203",
+      "userPrincipalName": "sec.eligible@example.com",
+      "isAdmin": true,
+      "isMfaRegistered": true,
+      "methodsRegistered": [
+        "microsoftAuthenticatorPush",
+        "softwareOneTimePasscode"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000204",
+      "userPrincipalName": "helpdesk.scoped@example.com",
+      "isAdmin": true,
+      "isMfaRegistered": true,
+      "methodsRegistered": [
+        "passKeyDeviceBound"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000205",
+      "userPrincipalName": "reports.reader@example.com",
+      "isAdmin": false,
+      "isMfaRegistered": true,
+      "methodsRegistered": [
+        "mobilePhone"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000002b1",
+      "userPrincipalName": "breakglass1@example.com",
+      "isAdmin": true,
+      "isMfaRegistered": true,
+      "methodsRegistered": [
+        "fido2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Config for the external_sharing.py tests. Example domains only.
+stale_days: 90
+pending_days: 30
+sensitive_pattern: "(?i)(finance|payroll|hr|legal|security|board)"
+blocked_domains:
+  - example.net

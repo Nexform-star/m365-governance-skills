@@ -1,0 +1,12 @@
+# Config for external_sharing.py. Every key is optional.
+# A guest with no sign-in for this many days is stale.
+stale_days: 90
+# An invitation not accepted after this many days is reported.
+pending_days: 30
+# Groups whose display name matches this regular expression are sensitive.
+sensitive_pattern: "(?i)(finance|payroll|hr|legal|security|board|admin|privileged)"
+# Guest domains the organisation has decided to block (added to the SharePoint and Teams block lists).
+blocked_domains:
+  - example.net
+# When set, guests from any other domain are reported. Leave empty to use only the block lists.
+allowed_domains: []

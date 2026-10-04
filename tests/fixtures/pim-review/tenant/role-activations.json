@@ -1,0 +1,15 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "rq-1",
+      "action": "selfActivate",
+      "principalId": "00000000-0000-0000-0000-000000000202",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/",
+      "status": "Provisioned",
+      "createdDateTime": "2026-09-20T09:00:00Z",
+      "justification": "Monthly tenant review"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Config for license_audit.py. Every key is optional.
+# A licensed account with no sign-in for this many days is inactive.
+inactive_days: 90
+# Accounts created within this many days are not reported for never signing in.
+never_signed_in_grace_days: 30
+# Two SKUs overlap when at least this share of the smaller SKU's service plans are also in the larger one.
+overlap_ratio: 0.8
+# [larger SKU, smaller SKU] pairs (skuPartNumber) that always count as overlapping.
+overlapping_skus:
+  - [SPE_E5, ENTERPRISEPACK]
+# Service plans (servicePlanName) the organisation has decided not to use.
+unwanted_service_plans:
+  - YAMMER_ENTERPRISE
+# Your own unit cost per skuPartNumber, only if you want totals. The script holds no prices; fill these from your
+# own agreement, and say what the number means in cost_label.
+# unit_costs:
+#   SPE_E5: 0.00
+# cost_label: "AUD per user per month"

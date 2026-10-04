@@ -1,19 +1,19 @@
 {
   "name": "m365-governance-skills",
-  "description": "Claude Code skills for Microsoft 365 governance: Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and group sprawl report and access review pack. Scripts read exported Graph JSON offline.",
+  "description": "Claude Code skills for Microsoft 365 governance: Graph permission preflight, Entra ID posture review, Conditional Access gaps, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Teams and group sprawl report and access review pack. Scripts read exported Graph JSON offline.",
   "owner": {
     "name": "Muhammad Basit Ali",
     "url": "https://github.com/basitalisandhu"
   },
   "metadata": {
-    "version": "0.1.1"
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "m365-governance",
       "source": "./plugins/m365-governance",
-      "description": "Five Microsoft 365 governance skills: Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and groups sprawl, access review pack. Read-only exports, offline evaluation.",
-      "version": "0.1.1",
+      "description": "Nine Microsoft 365 governance skills: Graph permission preflight, Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence and service plan audit, Intune baseline check, Teams and groups sprawl, access review pack. Read-only exports, offline evaluation.",
+      "version": "0.2.0",
       "author": {"name": "Muhammad Basit Ali", "url": "https://github.com/basitalisandhu"},
       "homepage": "https://github.com/basitalisandhu/m365-governance-skills",
       "repository": "https://github.com/basitalisandhu/m365-governance-skills",

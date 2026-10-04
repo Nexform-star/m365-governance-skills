@@ -1,0 +1,65 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "si-201e10",
+      "principalId": "00000000-0000-0000-0000-000000000201",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/",
+      "assignmentType": "Assigned",
+      "memberType": "Direct",
+      "startDateTime": "2025-03-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-2b1e10",
+      "principalId": "00000000-0000-0000-0000-0000000002b1",
+      "roleDefinitionId": "62e90394-69f5-4237-9190-012177145e10",
+      "directoryScopeId": "/",
+      "assignmentType": "Assigned",
+      "memberType": "Direct",
+      "startDateTime": "2025-03-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-204a12",
+      "principalId": "00000000-0000-0000-0000-000000000204",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a12",
+      "directoryScopeId": "/administrativeUnits/00000000-0000-0000-0000-000000000d0a",
+      "assignmentType": "Activated",
+      "memberType": "Direct",
+      "startDateTime": "2025-03-01T00:00:00Z",
+      "endDateTime": "2026-10-04T12:00:00Z"
+    },
+    {
+      "id": "si-205a14",
+      "principalId": "00000000-0000-0000-0000-000000000205",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a14",
+      "directoryScopeId": "/",
+      "assignmentType": "Assigned",
+      "memberType": "Direct",
+      "startDateTime": "2025-03-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-5a1a13",
+      "principalId": "00000000-0000-0000-0000-0000000005a1",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a13",
+      "directoryScopeId": "/",
+      "assignmentType": "Assigned",
+      "memberType": "Direct",
+      "startDateTime": "2025-03-01T00:00:00Z",
+      "endDateTime": null
+    },
+    {
+      "id": "si-9c1a12",
+      "principalId": "00000000-0000-0000-0000-0000000009c1",
+      "roleDefinitionId": "00000000-0000-0000-0000-000000000a12",
+      "directoryScopeId": "/",
+      "assignmentType": "Assigned",
+      "memberType": "Direct",
+      "startDateTime": "2025-03-01T00:00:00Z",
+      "endDateTime": null
+    }
+  ]
+}

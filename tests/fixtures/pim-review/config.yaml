@@ -1,0 +1,5 @@
+# Config for the pim_review.py tests. Example ids only.
+break_glass:
+  - breakglass1@example.com
+stale_days: 90
+unused_eligible_days: 90

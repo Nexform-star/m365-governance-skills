@@ -62,7 +62,7 @@ jobs:
           docker build --build-arg VERSION=ci -t m365-governance-skills:ci .
           docker run --rm m365-governance-skills:ci --help > help.txt && grep "^usage: m365-governance <subcommand>" help.txt
           docker run --rm m365-governance-skills:ci > /dev/null && grep -c "^  [a-z]" help.txt
-          for s in preflight entra-posture intune-baseline groups-sprawl access-review; do docker run --rm m365-governance-skills:ci "$s" --help > /dev/null; done
+          for s in preflight entra-posture intune-baseline groups-sprawl access-review ca-gaps pim-review external-sharing license-audit; do docker run --rm m365-governance-skills:ci "$s" --help > /dev/null; done
           docker run --rm m365-governance-skills:ci --version
           test "$(docker run --rm --entrypoint id m365-governance-skills:ci -u)" = "1000"
           test "$(docker run --rm --entrypoint pwd m365-governance-skills:ci)" = "/work"

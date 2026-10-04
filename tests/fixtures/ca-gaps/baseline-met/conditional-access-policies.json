@@ -1,0 +1,212 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000d01",
+      "displayName": "Require MFA for all users",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000d02",
+      "displayName": "Block legacy authentication",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "exchangeActiveSync",
+          "other"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "block"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000d03",
+      "displayName": "Admins - require compliant device",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeRoles": [
+            "62e90394-69f5-4237-9190-012177145e10",
+            "00000000-0000-0000-0000-000000000a01"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "compliantDevice",
+          "domainJoinedDevice"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000d04",
+      "displayName": "Sign-in risk - require MFA",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ],
+        "signInRiskLevels": [
+          "medium",
+          "high"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000d05",
+      "displayName": "User risk - require MFA",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "All"
+          ]
+        },
+        "clientAppTypes": [
+          "all"
+        ],
+        "userRiskLevels": [
+          "high"
+        ]
+      },
+      "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+          "mfa"
+        ]
+      },
+      "sessionControls": null
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000d06",
+      "displayName": "Unmanaged devices - app enforced restrictions",
+      "state": "enabled",
+      "createdDateTime": "2025-11-01T00:00:00Z",
+      "modifiedDateTime": "2026-09-01T00:00:00Z",
+      "conditions": {
+        "users": {
+          "includeUsers": [
+            "All"
+          ],
+          "excludeGroups": [
+            "00000000-0000-0000-0000-0000000009b0"
+          ]
+        },
+        "applications": {
+          "includeApplications": [
+            "Office365"
+          ]
+        },
+        "clientAppTypes": [
+          "browser"
+        ],
+        "devices": {
+          "deviceFilter": {
+            "mode": "exclude",
+            "rule": "device.isCompliant -eq True -or device.trustType -eq \"ServerAD\""
+          }
+        }
+      },
+      "grantControls": null,
+      "sessionControls": {
+        "applicationEnforcedRestrictions": {
+          "isEnabled": true
+        }
+      }
+    }
+  ]
+}

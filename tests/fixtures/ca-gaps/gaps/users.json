@@ -1,0 +1,68 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#example",
+  "value": [
+    {
+      "id": "00000000-0000-0000-0000-000000000101",
+      "displayName": "Admin One",
+      "userPrincipalName": "admin.one@example.com",
+      "userType": "Member",
+      "accountEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000102",
+      "displayName": "Admin Two",
+      "userPrincipalName": "admin.two@example.com",
+      "userType": "Member",
+      "accountEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000103",
+      "displayName": "Scanner Service",
+      "userPrincipalName": "svc.scanner@example.com",
+      "userType": "Member",
+      "accountEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000104",
+      "displayName": "Staff One",
+      "userPrincipalName": "staff.one@example.com",
+      "userType": "Member",
+      "accountEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000105",
+      "displayName": "Staff Two",
+      "userPrincipalName": "staff.two@example.com",
+      "userType": "Member",
+      "accountEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000106",
+      "displayName": "Partner Guest",
+      "userPrincipalName": "partner_example.org#EXT#@example.com",
+      "userType": "Guest",
+      "accountEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000107",
+      "displayName": "Left Company",
+      "userPrincipalName": "left.company@example.com",
+      "userType": "Member",
+      "accountEnabled": false
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000001b1",
+      "displayName": "Break Glass One",
+      "userPrincipalName": "breakglass1@example.com",
+      "userType": "Member",
+      "accountEnabled": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000001b2",
+      "displayName": "Break Glass Two",
+      "userPrincipalName": "breakglass2@example.com",
+      "userType": "Member",
+      "accountEnabled": true
+    }
+  ]
+}

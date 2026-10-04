@@ -124,13 +124,13 @@ jobs:
             ${{ env.IMAGE }}:latest
           labels: |
             org.opencontainers.image.title=m365-governance-skills
-            org.opencontainers.image.description=Microsoft 365 governance skill scripts (Graph permission preflight, Entra posture, Intune baseline, groups sprawl, access review) behind one command
+            org.opencontainers.image.description=Microsoft 365 governance skill scripts (Graph permission preflight, Entra posture, Conditional Access gaps, privileged access, external sharing, licence audit, Intune baseline, groups sprawl, access review) behind one command
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.licenses=MIT
             org.opencontainers.image.version=${{ env.VERSION }}
             org.opencontainers.image.revision=${{ github.sha }}
           annotations: |
-            index:org.opencontainers.image.description=Microsoft 365 governance skill scripts (Graph permission preflight, Entra posture, Intune baseline, groups sprawl, access review) behind one command
+            index:org.opencontainers.image.description=Microsoft 365 governance skill scripts (Graph permission preflight, Entra posture, Conditional Access gaps, privileged access, external sharing, licence audit, Intune baseline, groups sprawl, access review) behind one command
             index:org.opencontainers.image.source=https://github.com/${{ github.repository }}
             index:org.opencontainers.image.licenses=MIT
           # Provenance comes from attest-build-provenance below; keep the image index free of extra manifests.
