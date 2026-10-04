@@ -6,14 +6,14 @@
     "url": "https://github.com/basitalisandhu"
   },
   "metadata": {
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "plugins": [
     {
       "name": "m365-governance",
       "source": "./plugins/m365-governance",
       "description": "Five Microsoft 365 governance skills: Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and groups sprawl, access review pack. Read-only exports, offline evaluation.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {"name": "Muhammad Basit Ali", "url": "https://github.com/basitalisandhu"},
       "homepage": "https://github.com/basitalisandhu/m365-governance-skills",
       "repository": "https://github.com/basitalisandhu/m365-governance-skills",

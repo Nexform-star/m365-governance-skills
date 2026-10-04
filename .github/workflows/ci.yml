@@ -49,6 +49,24 @@ jobs:
       - name: Every script answers --help
         run: for s in plugins/m365-governance/skills/*/scripts/[a-z]*.py; do python3 "$s" --help > /dev/null; done
 
+  container-build:
+    name: Build the container image and run it
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Build the image, print --help, run each subcommand's --help and check the user
+        run: |
+          docker build --build-arg VERSION=ci -t m365-governance-skills:ci .
+          docker run --rm m365-governance-skills:ci --help > help.txt && grep "^usage: m365-governance <subcommand>" help.txt
+          docker run --rm m365-governance-skills:ci > /dev/null && grep -c "^  [a-z]" help.txt
+          for s in preflight entra-posture intune-baseline groups-sprawl access-review; do docker run --rm m365-governance-skills:ci "$s" --help > /dev/null; done
+          docker run --rm m365-governance-skills:ci --version
+          test "$(docker run --rm --entrypoint id m365-governance-skills:ci -u)" = "1000"
+          test "$(docker run --rm --entrypoint pwd m365-governance-skills:ci)" = "/work"
+
   claude-plugin-validate:
     name: claude plugin validate --strict
     runs-on: ubuntu-latest

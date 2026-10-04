@@ -38,6 +38,36 @@ Or start Claude Code with `claude --plugin-dir ./plugins/m365-governance`.
 
 Requirements: Python 3.11 or newer as `python3`. For the export steps only: the Microsoft Graph CLI (`mgc`) or any Graph client you already use, and an account with read access (Global Reader covers most exports). Each skill lists the exact read-only Graph permissions per export.
 
+## Install
+
+The plugin installs as shown in the Quickstart. The skill scripts are also published as one container image on GitHub Packages (linux/amd64 and linux/arm64) for running them without a checkout, for example in CI. The image's entrypoint is `m365-governance <subcommand> [args]`; mount the files to read at `/work`, which is the working directory:
+
+```bash
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 entra-posture /work/entra-export-2026-10-04 --config /work/config.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 preflight /work/preflight-myapp --needs /work/preflight-myapp/needs.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 access-review /work/entra-export-2026-10-04 --out-dir /work/access-review-2026-10
+docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 --help
+```
+
+| Subcommand | Script (skill) |
+|---|---|
+| `preflight` | `permission_preflight.py` (graph-permission-preflight) |
+| `entra-posture` | `entra_posture.py` (entra-posture-review) |
+| `intune-baseline` | `intune_baseline.py` (intune-baseline-check) |
+| `groups-sprawl` | `groups_sprawl.py` (teams-and-groups-sprawl) |
+| `access-review` | `access_review_pack.py` (access-review-pack) |
+
+Every subcommand passes its arguments to the script unchanged, so `m365-governance <subcommand> --help` shows the same options as the script. Output files land in the mounted folder. The image has no pip dependencies and runs as uid 1000; on Linux add `--user "$(id -u):$(id -g)"` if the mounted folder is not writable by that uid. From a checkout, `python3 scripts/cli.py` is the same dispatcher.
+
+Each image is signed with cosign (keyless) and has a build provenance attestation and an SPDX SBOM (attached to the GitHub Release). To verify:
+
+```bash
+cosign verify ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 \
+  --certificate-identity-regexp '^https://github.com/basitalisandhu/m365-governance-skills/' \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com
+gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.1.1 --owner basitalisandhu
+```
+
 ## When to use this
 
 - An app, connector, MCP server or automation asks for Graph permissions, or you want to know what an existing app can do: `graph-permission-preflight`

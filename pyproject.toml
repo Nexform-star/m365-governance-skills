@@ -1,6 +1,6 @@
 [project]
 name = "m365-governance-skills"
-version = "0.1.0"
+version = "0.1.1"
 description = "Claude Code skills for Microsoft 365 governance: Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and group sprawl, access review pack."
 requires-python = ">=3.11"
 license = { text = "MIT" }
