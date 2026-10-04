@@ -11,7 +11,6 @@ venv/
 *-export-*/
 preflight-*/
 access-review-*/
-pack-redacted/
 cleanup.csv
 *-findings.json
 

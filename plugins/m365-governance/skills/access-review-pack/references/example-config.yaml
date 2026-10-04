@@ -1,0 +1,15 @@
+# Config for access_review_pack.py. Every key is optional.
+review_name: "Q4 2026 access review"
+# Secrets and certificates expiring within this many days (and expired ones) are listed.
+credential_window_days: 90
+# Owners of groups whose names match this are listed for review.
+sensitive_group_pattern: "(?i)(admin|privileged|finance|payroll|hr|security)"
+# true limits the role section to the built-in privileged roles (Global Administrator and similar).
+only_privileged_roles: false
+# Reviewer per section; written into the reviewer column of the sign-off CSV.
+reviewers:
+  privileged-roles: security-lead@example.com
+  app-owners: app-platform-lead@example.com
+  sensitive-group-owners: security-lead@example.com
+  guests-per-group: collaboration-owner@example.com
+  expiring-credentials: app-platform-lead@example.com
