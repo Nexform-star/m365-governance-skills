@@ -13,6 +13,12 @@ No network access from the scripts, no telemetry. Nothing in this repository cha
 /plugin install m365-governance@m365-governance-skills
 ```
 
+## Demo
+
+![Terminal output of m365-governance ca-gaps run on the committed Conditional Access test fixture](docs/demo.svg)
+
+Generated from the committed fixtures by [`scripts/render_demo.py`](scripts/render_demo.py); run `python3 scripts/render_demo.py` to regenerate it.
+
 ## Quickstart
 
 In a Claude Code session, after installing:
