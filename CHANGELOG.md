@@ -4,6 +4,17 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-05
+
+### Added
+
+- `copilot-oversharing-readiness`: `copilot_readiness.py` scores a tenant's readiness for a Microsoft 365 Copilot rollout from read-only PnP, Graph and Security and Compliance exports, with 12 checks: Everyone and Everyone except external users in site groups, anyone and organisation-wide sharing links, sites that allow anyone links, sites with no sensitivity label or no owner, inactive sites many people can reach, the tenant default link type, anyone links without expiry, no published labels, and DLP for SharePoint and OneDrive missing or in test mode. Findings fall into three buckets (fix before rollout, before broad rollout, hygiene) with a readiness rating, a score from a fixed rubric, and a remediation list grouped by site owner as Markdown, JSON or CSV. Sharing link URLs are never printed and secret-shaped strings are masked. The SKILL.md lists the exact read-only command behind each export with a small example.
+- Dispatcher subcommand `copilot-readiness`; the container check in CI runs its `--help`.
+
+### Changed
+
+- Version 0.3.0 in `pyproject.toml`, `plugin.json`, `marketplace.json`, the dispatcher and the README container examples; the READMEs list the new skill and the searches it answers.
+
 ## [0.2.2] - 2026-10-05
 
 ### Changed

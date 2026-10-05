@@ -1,24 +1,24 @@
 {
   "name": "m365-governance-skills",
-  "description": "Claude Code skills for Microsoft 365 governance: Graph permission preflight, Entra ID posture review, Conditional Access gaps, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Teams and group sprawl report and access review pack. Scripts read exported Graph JSON offline.",
+  "description": "Claude Code skills for Microsoft 365 governance: Graph permission preflight, Entra ID posture review, Conditional Access gaps, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Teams and group sprawl report, access review pack and Copilot oversharing readiness. Scripts read exported Graph and SharePoint JSON offline.",
   "owner": {
     "name": "Muhammad Basit Ali",
     "url": "https://github.com/basitalisandhu"
   },
   "metadata": {
-    "version": "0.2.2"
+    "version": "0.3.0"
   },
   "plugins": [
     {
       "name": "m365-governance",
       "source": "./plugins/m365-governance",
-      "description": "Nine Microsoft 365 governance skills: Graph permission preflight, Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence and service plan audit, Intune baseline check, Teams and groups sprawl, access review pack. Read-only exports, offline evaluation.",
-      "version": "0.2.2",
+      "description": "Ten Microsoft 365 governance skills: Graph permission preflight, Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence and service plan audit, Intune baseline check, Teams and groups sprawl, access review pack, Copilot oversharing readiness. Read-only exports, offline evaluation.",
+      "version": "0.3.0",
       "author": {"name": "Muhammad Basit Ali", "url": "https://github.com/basitalisandhu"},
       "homepage": "https://github.com/basitalisandhu/m365-governance-skills",
       "repository": "https://github.com/basitalisandhu/m365-governance-skills",
       "license": "MIT",
-      "keywords": ["microsoft-365", "entra-id", "intune", "microsoft-graph", "conditional-access", "access-review", "teams", "governance"],
+      "keywords": ["microsoft-365", "entra-id", "intune", "microsoft-graph", "conditional-access", "access-review", "teams", "governance", "copilot"],
       "category": "security",
       "tags": ["microsoft-365", "entra-id", "intune", "governance"]
     }

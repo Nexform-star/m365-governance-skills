@@ -15,7 +15,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-__version__ = "0.2.2"
+__version__ = "0.3.0"
 
 PROG = "m365-governance"
 ROOT = Path(__file__).resolve().parents[1]
@@ -67,6 +67,11 @@ COMMANDS: dict[str, tuple[str, str, str]] = {
         "license-and-service-plan-audit",
         "license_audit.py",
         "Licence waste, overlaps, licensing errors and a reclaim list",
+    ),
+    "copilot-readiness": (
+        "copilot-oversharing-readiness",
+        "copilot_readiness.py",
+        "Copilot oversharing readiness score and fixes by site owner",
     ),
 }
 

@@ -1,12 +1,12 @@
 # Claude Code skills for Microsoft 365 governance
 
-**Microsoft 365 governance skills for Claude Code: Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack. Scripts read exported Graph JSON offline.**
+**Microsoft 365 governance skills for Claude Code: Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack, Copilot oversharing readiness. Scripts read exported Graph and SharePoint JSON offline.**
 
-m365-governance-skills is a Claude Code plugin marketplace with one plugin, `m365-governance`, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.
+m365-governance-skills is a Claude Code plugin marketplace with one plugin, `m365-governance`, holding ten skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.
 
 It is written for administrators who look after Microsoft 365, Entra ID and Intune for a company or for clients, often alongside other duties. It exists because the governance questions repeat in every tenant (who are the Global Admins, is MFA really enforced and for whom, which guests can still reach what, which licences sit on disabled accounts, which teams have no owner, what is this connector asking for, what goes into this quarter's access review), and agents now connect to Microsoft 365 with broad Graph permissions. Message triage and daily digests are already covered by first-party plugins; this pack is the governance layer underneath: what can touch the tenant, and is the tenant in the state you think it is.
 
-Common searches it answers: Copilot oversharing readiness at the tenant sharing level, the identity controls behind Microsoft Secure Score, and guest access reviews. A per-site SharePoint site permissions audit is not covered.
+Common searches it answers: Copilot oversharing readiness site by site ("are we ready to turn on Copilot?", "which sites are shared with Everyone except external users?"), a Copilot deployment oversharing assessment with fixes per site owner, the identity controls behind Microsoft Secure Score, and guest access reviews. A full per-item SharePoint permissions audit is not covered.
 
 No network access from the scripts, no telemetry. Nothing in this repository changes a tenant: every skill proposes a portal path or a Graph call and runs a change only after you confirm that exact command.
 
@@ -51,11 +51,11 @@ Requirements: Python 3.11 or newer as `python3`. For the export steps only: the 
 The plugin installs as shown in the Quickstart. The skill scripts are also published as one container image on GitHub Packages (linux/amd64 and linux/arm64) for running them without a checkout, for example in CI. The image's entrypoint is `m365-governance <subcommand> [args]`; mount the files to read at `/work`, which is the working directory:
 
 ```bash
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 entra-posture /work/entra-export-2026-10-04 --config /work/config.yaml
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 preflight /work/preflight-myapp --needs /work/preflight-myapp/needs.yaml
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 access-review /work/entra-export-2026-10-04 --out-dir /work/access-review-2026-10
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 license-audit /work/licence-export-2026-10-05 --csv /work/reclaim-draft.csv
-docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 --help
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.3.0 entra-posture /work/entra-export-2026-10-04 --config /work/config.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.3.0 preflight /work/preflight-myapp --needs /work/preflight-myapp/needs.yaml
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.3.0 access-review /work/entra-export-2026-10-04 --out-dir /work/access-review-2026-10
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/m365-governance-skills:0.3.0 license-audit /work/licence-export-2026-10-05 --csv /work/reclaim-draft.csv
+docker run --rm ghcr.io/basitalisandhu/m365-governance-skills:0.3.0 --help
 ```
 
 This pack is also part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
@@ -71,16 +71,17 @@ This pack is also part of [claude-skills](https://github.com/basitalisandhu/clau
 | `pim-review` | `pim_review.py` (privileged-access-review) |
 | `external-sharing` | `external_sharing.py` (guest-and-external-sharing-review) |
 | `license-audit` | `license_audit.py` (license-and-service-plan-audit) |
+| `copilot-readiness` | `copilot_readiness.py` (copilot-oversharing-readiness) |
 
 Every subcommand passes its arguments to the script unchanged, so `m365-governance <subcommand> --help` shows the same options as the script. Output files land in the mounted folder. The image has no pip dependencies and runs as uid 1000; on Linux add `--user "$(id -u):$(id -g)"` if the mounted folder is not writable by that uid. From a checkout, `python3 scripts/cli.py` is the same dispatcher.
 
 Each image is signed with cosign (keyless) and has a build provenance attestation and an SPDX SBOM (attached to the GitHub Release). To verify:
 
 ```bash
-cosign verify ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 \
+cosign verify ghcr.io/basitalisandhu/m365-governance-skills:0.3.0 \
   --certificate-identity-regexp '^https://github.com/basitalisandhu/m365-governance-skills/' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
-gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 --owner basitalisandhu
+gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.3.0 --owner basitalisandhu
 ```
 
 ## When to use this
@@ -94,6 +95,7 @@ gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 
 - Which admins hold roles permanently, use SMS, have a mailbox on their admin account, or never activate their PIM roles: `privileged-access-review`
 - Which guests are stale, pending or from a blocked domain, which sit in sensitive groups, and whether SharePoint, OneDrive and Teams are open to anyone: `guest-and-external-sharing-review`
 - Which licences sit on disabled or unused accounts, who holds overlapping SKUs, where group-based licensing fails, and what could be reclaimed: `license-and-service-plan-audit`
+- Before a Microsoft 365 Copilot pilot or rollout: which sites are shared with everyone, carry anyone or organisation-wide links, have no label or no owner, and whether DLP covers SharePoint, with a fix list per site owner: `copilot-oversharing-readiness`
 
 ## Skills
 
@@ -108,6 +110,7 @@ gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.2.2 
 | `privileged-access-review` | admin and PIM review, "which admins still use SMS?" | `pim_review.py`: 10 checks across permanent and unused assignments, authentication methods, daily-use admin accounts, stale and synchronised admins, service principals and scoped assignments, plus an admin hygiene score with evidence |
 | `guest-and-external-sharing-review` | guest clean-up, external sharing settings, a partner relationship ending | `external_sharing.py`: 11 checks across guests and SharePoint, OneDrive and Teams external settings, a per-guest access map and a draft removal list (CSV) |
 | `license-and-service-plan-audit` | licence waste, renewal or true-up, group-based licensing errors | `license_audit.py`: 7 checks, per-SKU counts and a reclaim list (CSV); totals only from unit costs you supply |
+| `copilot-oversharing-readiness` | "are we ready to turn on Copilot?", before a Copilot pilot widens | `copilot_readiness.py`: 12 site and tenant checks in three buckets, a readiness rating and score, and a remediation list by site owner (Markdown and CSV) |
 
 ## Data model
 
@@ -129,6 +132,7 @@ Each script's `--help` lists every check id with its severity. In short:
 - `privileged-access-review` covers directory role assignments (active, eligible, permanent, activated), PIM activation history, registered authentication methods of admins, licences and mailbox plans on admin accounts, sign-in age, on-premises sync, service principals in roles and scoped assignments. Not covered: Azure resource roles, PIM role settings, PIM for Groups, Exchange and SharePoint role groups and custom role permissions.
 - `guest-and-external-sharing-review` covers guest accounts (domain, state, sign-in, inviter, groups), SharePoint and OneDrive tenant sharing settings and Teams external access. Not covered: sharing links on individual files and sites, site-level overrides, sensitivity labels, B2B direct connect and cross-tenant access, and guest settings inside Teams.
 - `license-and-service-plan-audit` covers licences on disabled, never-used and inactive accounts, overlapping SKUs by service plan, unwanted service plans, group-based licensing errors and unassigned units. Not covered: per-app usage, prices (only what you supply), billing terms, add-on dependencies, Azure and Dynamics 365 subscriptions.
+- `copilot-oversharing-readiness` covers Everyone and Everyone except external users in site groups, anyone and organisation-wide sharing links, site sharing level, sensitivity labels, owners and inactive broadly reachable sites, plus the tenant default link type, anyone-link expiry, published labels and DLP coverage of SharePoint and OneDrive. Not covered: item-level unique permissions other than links, membership of the Microsoft 365 group behind a site, Restricted SharePoint Search, and what Copilot has indexed.
 
 All findings come from exported data at one point in time and depend on the permissions and licences of the account that exported it. They need human verification before any change.
 
@@ -158,7 +162,7 @@ The skill folders follow the Agent Skills format (a `SKILL.md` with `name` and `
 
 **Some exports fail with a licence error.** Sign-in activity and the authentication methods registration report need Entra ID P1, and PIM schedules need P2. The scripts skip the checks whose input is missing and say so in the report.
 
-**Are all exports Graph calls?** Almost. Graph does not publish OneDrive's sharing level, anyone-link expiry or Teams external access, so `guest-and-external-sharing-review` reads two optional PowerShell exports for those (`Get-SPOTenant` and `Get-CsTenantFederationConfiguration`, both read-only `Get-` cmdlets). Without them the other checks still run.
+**Are all exports Graph calls?** Almost. Graph does not publish OneDrive's sharing level, anyone-link expiry or Teams external access, so `guest-and-external-sharing-review` reads two optional PowerShell exports for those (`Get-SPOTenant` and `Get-CsTenantFederationConfiguration`, both read-only `Get-` cmdlets). Without them the other checks still run. `copilot-oversharing-readiness` reads mostly PnP PowerShell exports (`Get-PnPTenantSite`, `Get-PnPSiteGroup`, `Get-PnPTenant`) and `Get-DlpCompliancePolicy`, because Graph does not publish site sharing levels or site group members.
 
 **Does the licence audit know what licences cost?** No. It counts. Totals appear only for SKUs where you put your own unit cost in the config, and the report labels them with the text you give (for example "AUD per user per month").
 
