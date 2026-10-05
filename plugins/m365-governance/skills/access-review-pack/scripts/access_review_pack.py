@@ -97,6 +97,28 @@ def last_sign_in(u: dict | None) -> str:
     dates = [d for d in (parse_dt(sia.get("lastSignInDateTime")), parse_dt(sia.get("lastNonInteractiveSignInDateTime"))) if d]
     return iso_day(max(dates)) if dates else "never"
 
+def last_service_principal_sign_in(activity: dict | None) -> str:
+    if not activity:
+        return "n/a"
+
+    dates = []
+
+    for name in (
+        "lastSignInActivity",
+        "delegatedClientSignInActivity",
+        "delegatedResourceSignInActivity",
+        "applicationClientSignInActivity",
+        "applicationResourceSignInActivity",
+    ):
+        item = activity.get(name) or {}
+        date = parse_dt(item.get("lastSignInDateTime"))
+        if date:
+            dates.append(date)
+
+    if not dates:
+        return "n/a"
+
+    return iso_day(max(dates))
 
 def label(o: dict) -> str:
     return o.get("userPrincipalName") or o.get("displayName") or o.get("appId") or o.get("id", "?")
@@ -111,6 +133,7 @@ def build(folder: str, cfg: dict, now) -> tuple[dict, Export, set[str]]:
     apps = ex.list("applications.json")
     app_owners = ex.dir_lists("application-owners")
     sps = ex.list("service-principals.json")
+    service_principal_sign_ins = ex.list("service-principal-sign-ins.json")
     groups = ex.list("groups.json")
     group_owners = ex.dir_lists("group-owners")
     group_members = ex.dir_lists("group-members")
@@ -124,6 +147,7 @@ def build(folder: str, cfg: dict, now) -> tuple[dict, Export, set[str]]:
         raise InputError(f"config sensitive_group_pattern is not a valid regular expression: {exc}") from exc
     by_id = {u.get("id"): u for u in users or []}
     sp_by_id = {s.get("id"): s for s in sps or []}
+    sign_ins_by_app_id = {s.get("appId"): s for s in service_principal_sign_ins or []}
     roles = {GLOBAL_ADMIN_TEMPLATE: "Global Administrator"}
     for r in role_defs or []:
         roles[r.get("id", "")] = r.get("displayName", r.get("id", "?"))
@@ -148,7 +172,14 @@ def build(folder: str, cfg: dict, now) -> tuple[dict, Export, set[str]]:
             otype = str(principal.get("@odata.type", ""))
             kind = ("service principal" if pid in sp_by_id or otype.endswith("servicePrincipal")
                     else "group" if otype.endswith("group") else "guest" if is_guest(principal) else "user")
-            last = last_sign_in(by_id.get(pid)) if kind in {"user", "guest"} else "n/a"
+            if kind in {"user", "guest"}:
+                last = last_sign_in(by_id.get(pid))
+            elif kind == "service principal":
+                sp = sp_by_id.get(pid)
+                activity = sign_ins_by_app_id.get((sp or {}).get("appId"))
+                last = last_service_principal_sign_in(activity)
+            else:
+                last = "n/a"
             scope = a.get("directoryScopeId", "/")
             row("privileged-roles", role, label(principal), f"{state}, {kind}" + ("" if scope in ("/", None) else f", scope {scope}"), last)
     if apps is None:
@@ -157,10 +188,12 @@ def build(folder: str, cfg: dict, now) -> tuple[dict, Export, set[str]]:
         owners = None if app_owners is None else app_owners.get(app.get("id", ""))
         item = f"{app.get('displayName', '?')} ({app.get('appId', '?')})"
         creds = len(app.get("passwordCredentials") or []) + len(app.get("keyCredentials") or [])
+
         if owners is None:
             row("app-owners", item, "owners not exported", f"{creds} credential(s)")
         elif not owners:
             row("app-owners", item, "NO OWNER", f"{creds} credential(s)")
+
         for o in owners or []:
             row("app-owners", item, label(o), f"{creds} credential(s)", last_sign_in(by_id.get(o.get("id"))))
     if groups is None:

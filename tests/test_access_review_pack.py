@@ -26,6 +26,7 @@ def test_role_holders_include_eligible_guest_and_service_principal():
     assert rows["ben@example.com"]["last_sign_in"] == "2026-06-15"
     assert rows["guest_example.net#EXT#@example.com"]["detail"] == "active, guest"
     assert rows["Example HR Provisioning"]["detail"].startswith("active, service principal, scope /administrativeUnits/")
+    assert rows["Example HR Provisioning"]["last_sign_in"] == "2026-09-10"
     assert rows["ana@example.com"]["reviewer"] == "security-lead@example.com"
 
 
