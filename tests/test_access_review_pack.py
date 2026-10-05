@@ -30,6 +30,19 @@ def test_role_holders_include_eligible_guest_and_service_principal():
     assert rows["ana@example.com"]["reviewer"] == "security-lead@example.com"
 
 
+def test_service_principal_sign_ins_optional(tmp_path):
+    import shutil
+
+    fixture_dir = tmp_path / "tenant"
+    shutil.copytree(T, fixture_dir)
+    (fixture_dir / "service-principal-sign-ins.json").unlink()
+
+    _, rep = run_json(mod, [str(fixture_dir), *BASE, "--json"])
+    rows = {r["principal"]: r for r in rep["rows"] if r["section"] == "privileged-roles"}
+
+    assert rows["Example HR Provisioning"]["last_sign_in"] == "n/a"
+
+
 def test_only_privileged_roles(write):
     cfg = write("c.yaml", "only_privileged_roles: true\n")
     _, rep = run_json(mod, [T, "--config", str(cfg), "--as-of", "2026-10-04", "--json"])

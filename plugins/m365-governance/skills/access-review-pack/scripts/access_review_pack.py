@@ -175,8 +175,8 @@ def build(folder: str, cfg: dict, now) -> tuple[dict, Export, set[str]]:
             if kind in {"user", "guest"}:
                 last = last_sign_in(by_id.get(pid))
             elif kind == "service principal":
-                sp = sp_by_id.get(pid)
-                activity = sign_ins_by_app_id.get((sp or {}).get("appId"))
+                app_id = (sp_by_id.get(pid) or principal).get("appId")
+                activity = sign_ins_by_app_id.get(app_id)
                 last = last_service_principal_sign_in(activity)
             else:
                 last = "n/a"
@@ -188,12 +188,10 @@ def build(folder: str, cfg: dict, now) -> tuple[dict, Export, set[str]]:
         owners = None if app_owners is None else app_owners.get(app.get("id", ""))
         item = f"{app.get('displayName', '?')} ({app.get('appId', '?')})"
         creds = len(app.get("passwordCredentials") or []) + len(app.get("keyCredentials") or [])
-
         if owners is None:
             row("app-owners", item, "owners not exported", f"{creds} credential(s)")
         elif not owners:
             row("app-owners", item, "NO OWNER", f"{creds} credential(s)")
-
         for o in owners or []:
             row("app-owners", item, label(o), f"{creds} credential(s)", last_sign_in(by_id.get(o.get("id"))))
     if groups is None:
