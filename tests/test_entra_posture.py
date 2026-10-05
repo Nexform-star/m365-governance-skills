@@ -14,7 +14,7 @@ def checks(rep, check):
 
 
 def test_disabled_users_with_active_and_eligible_roles_are_reported():
-    data = json.loads((FIXTURES / "entra" / "disabled-role-holders.json").read_text())
+    data = json.loads((FIXTURES / "entra" / "disabled-role-holders.json").read_text(encoding="utf-8"))
     directory = mod.Directory(data["users"], [], [])
     findings, _ = mod.check_roles(data["assignments"], data["eligible"], None, {}, directory)
     disabled = [f for f in findings if f["check"] == "ROLE-DISABLED-HOLDER"]
@@ -25,7 +25,7 @@ def test_disabled_users_with_active_and_eligible_roles_are_reported():
 
 
 def test_disabled_role_holder_json_threshold_and_redaction(write):
-    data = json.loads((FIXTURES / "entra" / "disabled-role-holders.json").read_text())
+    data = json.loads((FIXTURES / "entra" / "disabled-role-holders.json").read_text(encoding="utf-8"))
     write("users.json", json.dumps({"value": data["users"]}))
     root = write("role-assignments.json", json.dumps({"value": data["assignments"]})).parent
     rc, rep = run_json(mod, [str(root), "--json", "--redact", "--fail-on", "LOW"])
@@ -61,7 +61,7 @@ def test_pim_activation_and_break_glass_are_not_standing_admins():
 def test_without_pim_export_every_active_admin_is_standing(tmp_path):
     for p in (FIXTURES / "entra" / "insecure").iterdir():
         if p.name != "role-assignment-schedule-instances.json":
-            (tmp_path / p.name).write_text(p.read_text())
+            (tmp_path / p.name).write_text(p.read_text(encoding="utf-8"), encoding="utf-8")
     _, rep = run_json(mod, [str(tmp_path), *BASE])
     assert len(checks(rep, "ROLE-GA-PERMANENT")) == 5
     assert any("schedule" in s for s in rep["skipped"])

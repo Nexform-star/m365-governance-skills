@@ -20,14 +20,14 @@ gio = load_script("entra-posture-review", "_graphio.py")
 
 @pytest.mark.parametrize("helper", ["_graphio.py", "_miniyaml.py"])
 def test_helper_copies_are_identical(helper):
-    copies = {skill: (SKILLS / skill / "scripts" / helper).read_text() for skill in SCRIPTS}
+    copies = {skill: (SKILLS / skill / "scripts" / helper).read_text(encoding="utf-8") for skill in SCRIPTS}
     assert len(set(copies.values())) == 1, f"{helper} differs between skills: copy one version to every skill"
 
 
 @pytest.mark.parametrize("skill", sorted(SCRIPTS))
 def test_scripts_have_no_network_or_subprocess_code(skill):
     for path in (SKILLS / skill / "scripts").glob("*.py"):
-        text = path.read_text()
+        text = path.read_text(encoding="utf-8")
         assert not re.search(r"^\s*(import|from)\s+(socket|subprocess|urllib|http|requests|ssl|ftplib|smtplib)\b", text, re.M), path
 
 

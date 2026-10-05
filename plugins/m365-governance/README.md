@@ -2,6 +2,8 @@
 
 Nine Microsoft 365 governance skills for Claude Code: a Graph permission preflight for apps and connectors, an Entra ID posture review, a Conditional Access gap analysis, a privileged access review, a guest and external sharing review, a licence and service plan audit, an Intune baseline check, a Teams and groups sprawl report, and a quarterly access review pack.
 
+Use it when you are getting a tenant ready for Copilot oversharing concerns (`guest-and-external-sharing-review` covers tenant sharing settings, anyone links and guests; per-site and per-file permissions are not covered, so a full SharePoint site permissions audit is out of scope), or when you want the identity side of Microsoft Secure Score checked from exports (`entra-posture-review` checks many of the same controls; it does not read the score itself).
+
 ## Install
 
 ```text

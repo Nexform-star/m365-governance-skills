@@ -1,7 +1,7 @@
 {
   "name": "m365-governance",
   "displayName": "Microsoft 365 Governance",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Microsoft 365 governance skills for Claude Code: Graph permission preflight for apps and connectors, Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence and service plan audit, Intune baseline check, Teams and group sprawl report, and a quarterly access review pack. Scripts are standard-library Python and evaluate exported Microsoft Graph JSON offline.",
   "author": {
     "name": "Muhammad Basit Ali",

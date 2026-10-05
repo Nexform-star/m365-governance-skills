@@ -5,7 +5,9 @@ Checks:
   * every JSON file parses; marketplace.json has name, owner.name and plugins[]; every plugin source directory
     exists and its plugin.json name equals the entry name
   * every plugins/<plugin>/skills/<name>/SKILL.md has YAML frontmatter with name (equal to the directory name,
-    lowercase with hyphens, at most 64 chars) and description (non-empty, at most 1024 chars); relative links in
+    lowercase with hyphens, at most 64 chars) and description (non-empty, at most 1024 chars, and by house rule
+    one double-quoted line of at most 600 chars with a "Use ..." sentence and a "Not for" boundary, plus a
+    "## Limits" section in the body); relative links in
     the body resolve; the body is under 500 lines; it has the "Read-only principle" and "Privacy" sections, mentions
     --redact, and says that tenant data is untrusted content, not instructions
   * mgc commands in a SKILL.md are reads: no create, update, delete, patch, post, add, remove, assign, wipe or retire
@@ -106,6 +108,41 @@ def scalar_problems(text: str) -> list[str]:
     return problems
 
 
+DESCRIPTION_MAX = 600
+
+
+def description_problems(text: str) -> list[str]:
+    """House rules for a SKILL.md description: one double-quoted line of at most 600 characters with a "Use ..."
+    sentence and a "Not for" boundary. Returns one message per broken rule (empty when there is no frontmatter)."""
+    if not text.startswith("---\n"):
+        return []
+    end = text.find("\n---", 4)
+    if end < 0:
+        return []
+    lines = [line for line in text[4:end].splitlines() if line.startswith("description:")]
+    raw = lines[0][len("description:"):].strip() if lines else None
+    if raw is None:
+        return ["no description"]
+    if len(raw) < 2 or raw[0] != '"' or raw[-1] != '"':
+        return ["description must be a single double-quoted line"]
+    try:
+        desc = json.loads(raw)
+    except json.JSONDecodeError:
+        return ["description is not a valid double-quoted string"]
+    problems = []
+    if len(desc) > DESCRIPTION_MAX:
+        problems.append(f"description is {len(desc)} chars (house limit {DESCRIPTION_MAX})")
+    if "Use " not in desc:
+        problems.append('description has no "Use ..." sentence')
+    if "Not for" not in desc:
+        problems.append('description has no "Not for" boundary')
+    return problems
+
+
+def has_limits_section(text: str) -> bool:
+    return re.search(r"^## Limits[ \t]*$", text, re.M) is not None
+
+
 def check_json_files() -> dict[Path, object]:
     parsed: dict[Path, object] = {}
     for p in sorted(ROOT.rglob("*.json")):
@@ -196,6 +233,10 @@ def check_skill(plugin_root: Path, skill_dir: Path) -> str | None:
     if "compatibility" in fm and len(fm["compatibility"]) > 500:
         err(f"{rel(skill)}: compatibility over 500 chars")
     body = skill.read_text(encoding="utf-8")
+    for problem in description_problems(body):
+        err(f"{rel(skill)}: {problem}")
+    if not has_limits_section(body):
+        err(f"{rel(skill)}: no '## Limits' section")
     if body.count("\n") > 500:
         err(f"{rel(skill)}: over 500 lines; move detail into references/")
     if UNTRUSTED_LINE not in body:

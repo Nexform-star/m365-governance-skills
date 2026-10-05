@@ -60,7 +60,7 @@ def test_removal_list_is_a_draft(tmp_path):
     path = tmp_path / "draft.csv"
     rc, out, _ = run_main(mod, [str(T), "--config", CFG, "--as-of", "2026-10-04", "--csv", str(path)])
     assert rc == 1 and "## Removal list (DRAFT" in out
-    rows = list(csv.DictReader(path.open()))
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
     assert [r["guest"] for r in rows] == ["new.partner_example.org#EXT#@example.com", "old.vendor_example.org#EXT#@example.com", PAT]
     assert all(r["status"] == "DRAFT" and r["decision"] == "" for r in rows)
     assert rows[2]["reasons"] == "blocked domain"
@@ -68,9 +68,9 @@ def test_removal_list_is_a_draft(tmp_path):
 
 def test_allow_list_mode_reports_other_domains(tmp_path):
     shutil.copytree(T, tmp_path / "t")
-    settings = json.loads((T / "sharepoint-settings.json").read_text())
+    settings = json.loads((T / "sharepoint-settings.json").read_text(encoding="utf-8"))
     settings.update({"sharingDomainRestrictionMode": "allowList", "sharingAllowedDomainList": ["example.org"]})
-    (tmp_path / "t" / "sharepoint-settings.json").write_text(json.dumps(settings))
+    (tmp_path / "t" / "sharepoint-settings.json").write_text(json.dumps(settings), encoding="utf-8")
     _, rep = run_json(mod, [str(tmp_path / "t"), "--as-of", "2026-10-04", "--json"])
     [f] = checks(rep, "GUEST-BLOCKED-DOMAIN")
     assert f["finding"] == "Guest from a domain not on the allow list"

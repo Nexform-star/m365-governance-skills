@@ -4,6 +4,18 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-10-05
+
+### Changed
+
+- Rewrote all nine skill descriptions to 439 to 582 characters (from 824 to 993): each starts with a verb, states the goal before the mechanism, carries one quoted phrase a user would type, a "Use when ..." sentence and a "Not for ..." boundary, and stays double-quoted.
+- Tests open text files with `encoding="utf-8"` (the scripts already did), and CI runs tests, ruff and the `--help` check on `windows-latest` as well as Ubuntu and macOS.
+- The plugin and root READMEs mention Copilot oversharing, Microsoft Secure Score and SharePoint site permissions audits, with what the skills do and do not cover.
+- `scripts/validate_plugins.py` now fails when a description is over 600 characters, is not double-quoted, or lacks "Use " or "Not for", and when a SKILL.md has no `## Limits` section; `tests/test_skill_frontmatter.py` covers each rule.
+- Version 0.2.2 in `pyproject.toml`, `plugin.json`, `marketplace.json`, the dispatcher and the README container examples.
+
+### Added
+
 - Report disabled users that still hold active or eligible directory roles,
   with synthetic fixtures and redaction regression coverage.
 

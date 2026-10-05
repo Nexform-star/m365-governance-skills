@@ -84,7 +84,7 @@ def test_totals_only_from_supplied_unit_costs(write):
 def test_reclaim_csv_and_redact(tmp_path):
     path = tmp_path / "reclaim.csv"
     rc, _, _ = run_main(mod, [T, *BASE, "--csv", str(path), "--redact"])
-    rows = list(csv.DictReader(path.open()))
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
     assert rc == 1 and len(rows) == 4 and list(rows[0]) == ["user", "sku", "reasons", "assigned_by", "last_sign_in", "decision"]
     assert all("@example.com" not in r["user"] and r["decision"] == "" for r in rows)
 

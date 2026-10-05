@@ -101,7 +101,8 @@ def test_missing_member_export_is_not_a_zero_target(tmp_path):
 
 
 def test_without_users_gaps_are_checked_structurally(tmp_path):
-    (tmp_path / "conditional-access-policies.json").write_text((GAPS / "conditional-access-policies.json").read_text())
+    policies = (GAPS / "conditional-access-policies.json").read_text(encoding="utf-8")
+    (tmp_path / "conditional-access-policies.json").write_text(policies, encoding="utf-8")
     rc, rep = run_json(mod, [str(tmp_path), *BASE])
     assert rc == 1 and rep["matrix"][0]["all users"] == "?"
     assert "structurally" in checks(rep, "CA-GAP-LEGACY-AUTH")[0]["evidence"]

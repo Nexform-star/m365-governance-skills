@@ -45,7 +45,7 @@ def test_cleanup_csv(tmp_path):
     out = tmp_path / "cleanup.csv"
     rc, _, _ = run_main(mod, [T, "--config", CFG, "--as-of", "2026-10-04", "--csv", str(out)])
     assert rc == 1
-    rows = list(csv.DictReader(out.open()))
+    rows = list(csv.DictReader(out.open(encoding="utf-8")))
     assert rows[0]["name"] == "Finance Team" and rows[0]["decision"] == ""
     assert len(rows) == 5
 

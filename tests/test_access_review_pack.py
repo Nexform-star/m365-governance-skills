@@ -53,9 +53,9 @@ def test_expiring_credentials_window():
 def test_out_dir_writes_checklist_and_csv(tmp_path):
     rc, out, _ = run_main(mod, [T, *BASE, "--out-dir", str(tmp_path)])
     assert rc == 0 and "Wrote" in out
-    md = (tmp_path / "access-review.md").read_text()
+    md = (tmp_path / "access-review.md").read_text(encoding="utf-8")
     assert md.startswith("# Q4 2026 access review") and "- [ ] **Payroll Admins**: NO OWNER" in md
-    rows = list(csv.DictReader((tmp_path / "access-review-signoff.csv").open()))
+    rows = list(csv.DictReader((tmp_path / "access-review-signoff.csv").open(encoding="utf-8")))
     assert list(rows[0].keys()) == ["section", "item", "principal", "detail", "last_sign_in", "reviewer", "decision", "date"]
     assert len(rows) == 15 and all(r["decision"] == "" and r["date"] == "" for r in rows)
 
@@ -63,7 +63,7 @@ def test_out_dir_writes_checklist_and_csv(tmp_path):
 def test_redacted_pack_has_no_upns(tmp_path):
     rc, _, _ = run_main(mod, [T, *BASE, "--out-dir", str(tmp_path), "--redact"])
     assert rc == 0
-    text = (tmp_path / "access-review.md").read_text() + (tmp_path / "access-review-signoff.csv").read_text()
+    text = (tmp_path / "access-review.md").read_text(encoding="utf-8") + (tmp_path / "access-review-signoff.csv").read_text(encoding="utf-8")
     assert "@example.com" not in text and "Ana Example" not in text
 
 
