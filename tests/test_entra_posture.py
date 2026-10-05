@@ -13,6 +13,27 @@ def checks(rep, check):
     return [f for f in rep["findings"] if f["check"] == check]
 
 
+def test_disabled_users_with_active_and_eligible_roles_are_reported():
+    data = json.loads((FIXTURES / "entra" / "disabled-role-holders.json").read_text())
+    directory = mod.Directory(data["users"], [], [])
+    findings, _ = mod.check_roles(data["assignments"], data["eligible"], None, {}, directory)
+    disabled = [f for f in findings if f["check"] == "ROLE-DISABLED-HOLDER"]
+    assert len(disabled) == 2
+    assert all(f["subject"] == "disabled@example.com" and f["severity"] == "LOW" for f in disabled)
+    assert any("active" in f["evidence"] for f in disabled)
+    assert any("eligible" in f["evidence"] for f in disabled)
+
+
+def test_disabled_role_holder_json_threshold_and_redaction(write):
+    data = json.loads((FIXTURES / "entra" / "disabled-role-holders.json").read_text())
+    write("users.json", json.dumps({"value": data["users"]}))
+    root = write("role-assignments.json", json.dumps({"value": data["assignments"]})).parent
+    rc, rep = run_json(mod, [str(root), "--json", "--redact", "--fail-on", "LOW"])
+    assert rc == 1
+    assert len(checks(rep, "ROLE-DISABLED-HOLDER")) == 1
+    assert "disabled@example.com" not in json.dumps(rep)
+
+
 def test_insecure_tenant_flags_planted_defects():
     rc, rep = run_json(mod, [INSECURE, *BASE])
     assert rc == 1

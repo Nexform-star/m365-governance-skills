@@ -1,0 +1,15 @@
+{
+  "users": [
+    {"id": "00000000-0000-0000-0000-000000000901", "userPrincipalName": "disabled@example.com", "userType": "Member", "accountEnabled": false},
+    {"id": "00000000-0000-0000-0000-000000000902", "userPrincipalName": "enabled@example.com", "userType": "Member", "accountEnabled": true},
+    {"id": "00000000-0000-0000-0000-000000000903", "userPrincipalName": "unknown@example.com", "userType": "Member"}
+  ],
+  "assignments": [
+    {"principalId": "00000000-0000-0000-0000-000000000901", "roleDefinitionId": "helpdesk"},
+    {"principalId": "00000000-0000-0000-0000-000000000902", "roleDefinitionId": "helpdesk"},
+    {"principalId": "00000000-0000-0000-0000-000000000903", "roleDefinitionId": "helpdesk"}
+  ],
+  "eligible": [
+    {"principalId": "00000000-0000-0000-0000-000000000901", "roleDefinitionId": "reader"}
+  ]
+}

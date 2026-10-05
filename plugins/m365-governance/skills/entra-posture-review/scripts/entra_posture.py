@@ -32,6 +32,7 @@ Checks (id, default severity):
   ROLE-GA-COUNT              MEDIUM    more Global Administrators than max_global_admins (default 4); LOW when fewer than 2
   ROLE-GUEST-ADMIN           HIGH      a guest holds a directory role (active or eligible)
   ROLE-SP-PRIVILEGED         HIGH      a service principal holds a privileged directory role
+  ROLE-DISABLED-HOLDER       LOW       a disabled user still holds an active or eligible directory role
   GUEST-STALE                MEDIUM    a guest has not signed in for stale_guest_days (default 90), or never has
   APP-SECRET-EXPIRED         LOW       an application credential has expired and is still listed
   APP-SECRET-EXPIRING        LOW       an application credential expires within expiring_days (default 30)
@@ -299,6 +300,12 @@ def check_roles(assignments, eligible, schedules, cfg, d: Directory) -> tuple[li
                                "Entra admin center > Identity governance > Privileged Identity Management > Microsoft Entra roles",
                                "POST /roleManagement/directory/roleEligibilityScheduleRequests (make eligible), then remove the active assignment"))
     for h in holders:
+        user = d.users.get(h["principal_id"])
+        if user and user.get("accountEnabled") is False:
+            out.append(finding("ROLE-DISABLED-HOLDER", "LOW", h["principal"],
+                               f"Disabled account holds the {h['role']} role",
+                               f"principal {h['principal_id']} ({h['state']}); accountEnabled is false",
+                               "Entra admin center > Roles and administrators > " + h["role"]))
         if h["kind"] == "guest":
             out.append(finding("ROLE-GUEST-ADMIN", "HIGH", h["principal"], f"Guest holds the {h['role']} role ({h['state']})",
                                f"principal {h['principal_id']}", "Entra admin center > Roles and administrators > " + h["role"],

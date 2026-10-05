@@ -98,7 +98,7 @@ gh attestation verify oci://ghcr.io/basitalisandhu/m365-governance-skills:0.2.1 
 | Skill | Triggers on | What it produces |
 |---|---|---|
 | `graph-permission-preflight` | "is this permission request OK?", before admin consent, before connecting an agent | `permission_preflight.py`: high-risk, broader-than-needed, application-where-delegated, unused and `.All`-where-scoped findings, consent table, least-privilege replacement set |
-| `entra-posture-review` | tenant review, audit preparation, tenant handover | `entra_posture.py`: 23 checks across Conditional Access, security defaults, roles, guests, app credentials, service principal permissions, consent settings and legacy sign-ins |
+| `entra-posture-review` | tenant review, audit preparation, tenant handover | `entra_posture.py`: 24 checks across Conditional Access, security defaults, roles (including `ROLE-DISABLED-HOLDER` for disabled accounts), guests, app credentials, service principal permissions, consent settings and legacy sign-ins |
 | `intune-baseline-check` | device compliance review, stale devices, baseline evidence | `intune_baseline.py`: per-platform summary and 15 checks across devices, compliance policies, profile assignments and tenant compliance settings |
 | `teams-and-groups-sprawl` | ownerless teams, guest access, naming and expiration, cleanup | `groups_sprawl.py`: findings and a draft cleanup list (CSV) with proposed owners from member managers |
 | `access-review-pack` | quarterly or annual access review, privileged access recertification | `access_review_pack.py`: Markdown reviewer checklist and sign-off CSV (reviewer, decision, date) |

@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## [Unreleased]
 
+- Report disabled users that still hold active or eligible directory roles,
+  with synthetic fixtures and redaction regression coverage.
+
 ## [0.2.1] - 2026-10-04
 
 ### Fixed
