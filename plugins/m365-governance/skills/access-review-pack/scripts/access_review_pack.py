@@ -10,6 +10,7 @@ Input folder (file names the skill tells you to save; each section is built only
   application-owners/<app-object-id>.json  GET /applications/{id}/owners
   service-principals.json                  GET /servicePrincipals?$select=id,appId,displayName,servicePrincipalType,
                                                passwordCredentials,keyCredentials
+  service-principal-sign-ins.json          GET /beta/reports/servicePrincipalSignInActivities (optional, paged)
   groups.json                              GET /groups?$select=id,displayName,groupTypes,securityEnabled,mailEnabled
   group-owners/<group-id>.json             GET /groups/{id}/owners
   group-members/<group-id>.json            GET /groups/{id}/members
