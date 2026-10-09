@@ -26,7 +26,21 @@ def test_role_holders_include_eligible_guest_and_service_principal():
     assert rows["ben@example.com"]["last_sign_in"] == "2026-06-15"
     assert rows["guest_example.net#EXT#@example.com"]["detail"] == "active, guest"
     assert rows["Example HR Provisioning"]["detail"].startswith("active, service principal, scope /administrativeUnits/")
+    assert rows["Example HR Provisioning"]["last_sign_in"] == "2026-09-10"
     assert rows["ana@example.com"]["reviewer"] == "security-lead@example.com"
+
+
+def test_service_principal_sign_ins_optional(tmp_path):
+    import shutil
+
+    fixture_dir = tmp_path / "tenant"
+    shutil.copytree(T, fixture_dir)
+    (fixture_dir / "service-principal-sign-ins.json").unlink()
+
+    _, rep = run_json(mod, [str(fixture_dir), *BASE, "--json"])
+    rows = {r["principal"]: r for r in rep["rows"] if r["section"] == "privileged-roles"}
+
+    assert rows["Example HR Provisioning"]["last_sign_in"] == "n/a"
 
 
 def test_only_privileged_roles(write):
