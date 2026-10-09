@@ -4,6 +4,12 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-09
+
+### Added
+
+- `access-review-pack`: optional `service-principal-sign-ins.json` (Graph beta `servicePrincipalSignInActivities`, `AuditLog.Read.All`) fills `last_sign_in` for service principals with the latest of the five activity dates, `n/a` when the file is absent or the app has no record.
+
 ## [0.3.0] - 2026-10-05
 
 ### Added
